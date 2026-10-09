@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>James Kehl Architects</title>
+<meta name="description" content="James Kehl Architects is a solo residential architecture practice in central Ohio, designing timeless homes and living spaces for homeowners and builders.">
+<link rel="canonical" href="https://jameskehlarchitects.com/">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="James Kehl Architects">
+<meta property="og:description" content="Inspirational architecture that feels like home. Residential architecture in central Ohio.">
+<meta property="og:url" content="https://jameskehlarchitects.com/">
+<meta property="og:image" content="https://jameskehlarchitects.com/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: compact one-page practice profile. Sans-serif carries the reading; the serif is kept
+   for the opening line and client words. Section labels are quiet tracked capitals over a rule.
+   Opening screen, image wall, approach, services by phase, profile and references, contact. */
+:root {
+  --page: #ffffff;
+  --ink: #1f1f1d;
+  --soft: #6d6c67;
+  --line: #e4e2dd;
+  --rule: #d6d3cd;
+  --stone: #f1efec;
+  --sage: #8e8f73;
+  --bar: #2b2b28;
+  color-scheme: light;
+
+  --serif: "Cormorant Garamond", "Cormorant", Garamond, "Times New Roman", serif;
+  --sans: "Jost", "Futura PT", Futura, "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter: clamp(16px, 3.6vw, 56px);
+  --max: 1440px;
+  --gap: clamp(8px, 1vw, 14px);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+h1, h2, h3 { margin: 0; text-wrap: balance; }
+p, ul, dl, dd { margin: 0; }
+ul { padding: 0; list-style: none; }
+b, strong { font-weight: 500; }
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+.caps { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--soft); }
+.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.005em; }
+
+/* ---------- Header ---------- */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; }
+.brand { display: flex; align-items: center; gap: 16px; }
+.mark { display: block; width: 56px; aspect-ratio: 600 / 370; background: var(--sage); -webkit-mask: url(img/logo-mark.png) center / contain no-repeat; mask: url(img/logo-mark.png) center / contain no-repeat; flex: none; }
+.brand .name { font-size: 12px; font-weight: 400; letter-spacing: 0.26em; text-transform: uppercase; white-space: nowrap; }
+.nav { display: flex; gap: clamp(16px, 2.6vw, 36px); }
+.nav a { font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
+.nav a:hover { border-bottom-color: var(--ink); }
+@media (max-width: 760px) { .brand .name { display: none; } }
+@media (max-width: 440px) { .nav { gap: 12px; } .nav a { letter-spacing: 0.12em; font-size: 11px; } }
+
+/* ---------- Opening ---------- */
+.open { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 56px); padding-block: clamp(24px, 3vw, 40px) clamp(20px, 2.4vw, 32px); }
+.open-text { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.open h1 { font-size: clamp(38px, 4vw, 58px); line-height: 1.06; margin-top: 16px; }
+.open .intro { font-size: 16.5px; color: var(--soft); margin-top: 18px; max-width: 34em; }
+.open .intro + .intro { margin-top: 12px; }
+.creds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.creds div { padding: 13px 0; border-bottom: 1px solid var(--line); display: grid; gap: 1px; }
+.creds div:nth-child(odd) { padding-right: 16px; }
+.creds dd { font-size: 15.5px; font-weight: 400; line-height: 1.4; }
+.open-img img { width: 100%; height: 100%; min-height: 360px; max-height: 72vh; object-fit: cover; }
+@media (max-width: 900px) { .open { grid-template-columns: 1fr; } .open-img img { min-height: 0; aspect-ratio: 4 / 3; } }
+
+/* ---------- Image wall ---------- */
+.wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 12.5vw, 200px); gap: var(--gap); }
+.wall figure { margin: 0; overflow: hidden; background: var(--stone); min-width: 0; }
+.wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
+.wall figure:hover img { transform: scale(1.03); }
+.wall .draw { background: #fff; border: 1px solid var(--line); }
+.wall .draw img { object-fit: contain; padding: 10px; }
+.wall .draw:hover img { transform: scale(1.12); }
+.a { grid-area: 1 / 1 / 3 / 4; }
+.b { grid-area: 1 / 4 / 2 / 7; }
+.c { grid-area: 2 / 4 / 3 / 6; }
+.d { grid-area: 2 / 6 / 3 / 7; }
+.e { grid-area: 3 / 1 / 5 / 3; }
+.f { grid-area: 3 / 3 / 5 / 5; }
+.g { grid-area: 3 / 5 / 4 / 7; }
+.h { grid-area: 4 / 5 / 5 / 7; }
+.i { grid-area: 5 / 1 / 6 / 3; }
+.k { grid-area: 5 / 3 / 6 / 4; }
+.j { grid-area: 5 / 4 / 6 / 7; }
+.wall-note { padding-top: 10px; }
+@media (max-width: 760px) {
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; grid-auto-flow: dense; }
+  .wall figure { grid-area: auto; }
+  .a, .e, .f, .i { grid-column: span 2; }
+  .k { grid-column: span 1; }
+  .a, .e { grid-row: span 2; }
+}
+@media (prefers-reduced-motion: reduce) { .wall img { transition: none; } }
+
+/* ---------- Bands ---------- */
+.band { padding-block: clamp(44px, 5.5vw, 76px); }
+.band.tint { background: var(--stone); }
+.label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; border-top: 1px solid var(--ink); padding-top: 12px; margin-bottom: clamp(20px, 2.4vw, 32px); }
+.label .caps:first-child { color: var(--ink); font-weight: 500; }
+
+/* ---------- Approach ---------- */
+.phil { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 4vw, 72px); }
+.phil .lede { font-size: 20px; line-height: 1.5; font-weight: 300; max-width: 24em; }
+.tenets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); }
+.tenets li { padding-block: 16px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+.tenets b { font-size: 15.5px; }
+.tenets span { color: var(--soft); font-size: 15px; line-height: 1.6; }
+@media (max-width: 900px) { .phil { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .tenets { grid-template-columns: 1fr; } }
+
+/* ---------- Services: phase coverage ---------- */
+.svc-scroll { overflow-x: auto; }
+.phases { display: grid; grid-template-columns: minmax(210px, 1.3fr) repeat(5, minmax(120px, 1fr)); min-width: 880px; }
+.phases .ph { padding: 0 16px 18px 0; display: grid; gap: 6px; align-content: start; border-bottom: 1px solid var(--rule); }
+.phases .ph b { font-size: 15px; line-height: 1.3; }
+.phases .ph span { color: var(--soft); font-size: 13.5px; line-height: 1.55; }
+.phases .corner { border-bottom: 1px solid var(--rule); }
+.offer { display: contents; }
+.offer > .who { padding: 24px 20px 24px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: center; }
+.offer > .who b { font-size: 17px; font-weight: 500; line-height: 1.3; }
+.offer > .track { border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding-block: 24px; }
+.offer > .track .on { height: 4px; background: var(--bar); }
+.offer > .track .fee { grid-row: 2; padding-top: 12px; font-size: 14.5px; color: var(--soft); }
+.offer > .track .fee b { color: var(--ink); font-size: 17px; margin-right: 8px; }
+.svc-m { display: none; }
+@media (max-width: 760px) {
+  .svc-scroll { display: none; }
+  .svc-m { display: grid; gap: 28px; }
+  .svc-m ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+  .svc-m li { padding-block: 10px; border-bottom: 1px solid var(--rule); display: grid; }
+  .svc-m li span { color: var(--soft); font-size: 14px; }
+  .svc-m .offer-m { display: grid; gap: 4px; padding-top: 16px; border-top: 3px solid var(--bar); }
+  .svc-m .offer-m p { color: var(--soft); font-size: 14.5px; }
+  .svc-m .offer-m p b { color: var(--ink); font-size: 16px; }
+}
+.svc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 18px; }
+
+/* ---------- Profile ---------- */
+.profile { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 4vw, 72px); align-items: start; }
+.who-row { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px; align-items: start; }
+.who-row img { width: 112px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%; }
+.who-row b { font-size: 17px; }
+.who-row p { color: var(--soft); margin-top: 8px; font-size: 14.5px; line-height: 1.65; }
+.career { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.career li { padding-block: 11px; border-top: 1px solid var(--rule); display: grid; }
+.career b { font-size: 15px; }
+.career span { color: var(--soft); font-size: 14px; line-height: 1.5; }
+.quotes { display: grid; gap: 26px; }
+blockquote { margin: 0; display: grid; gap: 10px; padding-bottom: 26px; border-bottom: 1px solid var(--rule); }
+blockquote:last-child { border-bottom: 0; padding-bottom: 0; }
+blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(20px, 1.55vw, 23px); line-height: 1.38; }
+@media (max-width: 960px) { .profile { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .who-row { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; } .who-row img { width: 88px; } .career { grid-template-columns: 1fr; } }
+
+/* ---------- Contact ---------- */
+.contact { background: var(--ink); color: #f2f1ee; padding-block: clamp(40px, 5vw, 64px) 24px; }
+.contact .caps { color: #a9a8a2; }
+.c-grid { display: grid; grid-template-columns: minmax(0, 4.5fr) minmax(0, 3fr) minmax(0, 2fr) minmax(0, 2fr); gap: 28px; align-items: end; }
+.c-grid h2 { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.15; margin-top: 10px; }
+.c-grid .item { display: grid; gap: 4px; }
+.c-grid .item p { font-size: 17px; font-weight: 400; overflow-wrap: anywhere; }
+.c-grid .item p.mail { overflow-wrap: normal; white-space: nowrap; }
+@media (max-width: 1100px) { .c-grid .item p.mail { font-size: 15px; } }
+.sel { user-select: all; }
+.c-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: clamp(32px, 4vw, 48px); padding-top: 16px; border-top: 1px solid #3a3a37; }
+.contact .mark { background: #f2f1ee; width: 56px; }
+@media (max-width: 900px) { .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .c-grid > :first-child { grid-column: 1 / -1; } }
+@media (max-width: 480px) { .c-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="James Kehl Architects, home">
+      <span class="mark" role="img" aria-label="JKA"></span>
+      <span class="name">James Kehl Architects</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#profile">Profile</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap open">
+    <div class="open-text">
+      <div>
+        <span class="caps">Residential Architecture &middot; Ohio</span>
+        <h1 class="serif">Inspirational architecture that feels like home.</h1>
+        <p class="intro">I design timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. My work spans the modern and the classic, from new estates to the careful renovation of existing houses.</p>
+        <p class="intro">James Kehl Architects is a solo practice. I work directly with homeowners and with builders across central Ohio, and I lead every project personally from the first conversation through construction.</p>
+      </div>
+      <dl class="creds">
+        <div><dt class="caps">Licensed</dt><dd>Ohio &amp; California</dd></div>
+        <div><dt class="caps">Education</dt><dd>Yale School of Architecture</dd></div>
+        <div><dt class="caps">Experience</dt><dd>13 years, residential &amp; institutional</dd></div>
+        <div><dt class="caps">Practice</dt><dd>Full service &amp; construction documents</dd></div>
+      </dl>
+    </div>
+    <div class="open-img"><img src="img/hartzler-front.jpg" alt="A stone and plaster French country house on a broad lawn"></div>
+  </section>
+
+  <section class="wrap" id="work" aria-label="Work">
+    <div class="wall">
+      <figure class="a"><img src="img/hartzler-dusk.jpg" alt="French country house and pool at dusk" loading="lazy"></figure>
+      <figure class="b"><img src="img/int-room.jpg" alt="Great room with a stone fireplace open to the kitchen" loading="lazy"></figure>
+      <figure class="c"><img src="img/int-kitchen.jpg" alt="Kitchen with a marble island opening to a terrace" loading="lazy"></figure>
+      <figure class="d"><img src="img/loft-fire.jpg" alt="Three-sided fireplace wall in a white living room" loading="lazy"></figure>
+      <figure class="e draw"><img src="img/plan.jpg" alt="First floor reflected ceiling plan from a construction document set" loading="lazy"></figure>
+      <figure class="f"><img src="img/int-bath.jpg" alt="Primary bath with a freestanding tub under an arched window" loading="lazy"></figure>
+      <figure class="g"><img src="img/loft-living.jpg" alt="Living room with tall windows and white oak floors" loading="lazy"></figure>
+      <figure class="h"><img src="img/int-hillsdale.jpg" alt="Living room opening to a garden through glass walls" loading="lazy"></figure>
+      <figure class="i draw"><img src="img/elev-north.jpg" alt="Exterior elevation from a construction document set" loading="lazy"></figure>
+      <figure class="k draw"><img src="img/cabin-axon.jpg" alt="Structural axonometric of a small cabin" loading="lazy"></figure>
+      <figure class="j"><img src="img/hartzler-pool.jpg" alt="Walled pool garden beside a country house" loading="lazy"></figure>
+    </div>
+    <p class="caps wall-note">Houses, interiors and construction documents &middot; built work and design proposals</p>
+  </section>
+
+  <section class="band" id="approach" aria-label="Approach">
+    <div class="wrap">
+      <div class="label"><span class="caps">Approach</span></div>
+      <div class="phil">
+        <p class="lede">Dedication to the craft and to my clients is at the heart of the practice. Every project begins by listening.</p>
+        <ul class="tenets">
+          <li><b>How you live</b><span>Your needs, interests and way of life inform the ideas and the style of the architecture.</span></li>
+          <li><b>House, interiors &amp; landscape</b><span>Each residence is designed together with its interiors and landscape, to create rich environments that uplift and inspire.</span></li>
+          <li><b>Budget &amp; constraints</b><span>I embrace the requirements and constraints of a project and think rationally about how to maximize its value and potential.</span></li>
+          <li><b>Codes &amp; construction</b><span>I advise on planning and building codes, construction best practices and sustainable design, so decisions are made with full information.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint" id="services" aria-label="Services">
+    <div class="wrap">
+      <div class="label"><span class="caps">Services</span><span class="caps">For homeowners &amp; builders</span></div>
+      <div class="svc-scroll">
+        <div class="phases" role="table" aria-label="Services by phase">
+          <div class="corner" role="columnheader"></div>
+          <div class="ph" role="columnheader"><b>Consultation</b><span>Objectives, site, budget and schedule, with sketches and a proposal.</span></div>
+          <div class="ph" role="columnheader"><b>Schematic design</b><span>Site analysis, plans, elevations, materials and an early cost estimate.</span></div>
+          <div class="ph" role="columnheader"><b>Design development</b><span>Rooms, windows, interiors and details refined, with renderings.</span></div>
+          <div class="ph" role="columnheader"><b>Construction documents</b><span>A coordinated, stamped set, submitted for permit.</span></div>
+          <div class="ph" role="columnheader"><b>Bidding &amp; construction</b><span>Bid review, site visits, contractor questions and shop drawings.</span></div>
+
+          <div class="offer" role="row">
+            <div class="who" role="rowheader"><span class="caps">Homeowners</span><b>Full architectural services</b></div>
+            <div class="track" role="cell" style="grid-column: span 5">
+              <div class="on" style="grid-column: 1 / 6"></div>
+              <p class="fee" style="grid-column: 1 / 6"><b>By proposal</b>after an initial consultation</p>
+            </div>
+          </div>
+          <div class="offer" role="row">
+            <div class="who" role="rowheader"><span class="caps">Builders</span><b>Construction &amp; permit documents</b></div>
+            <div class="track" role="cell" style="grid-column: span 5">
+              <div class="on" style="grid-column: 4 / 5"></div>
+              <p class="fee" style="grid-column: 2 / 6; text-align: right"><b>Fixed fee per sq ft</b>quoted per project, through permit; hourly after</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="svc-m">
+        <ol>
+          <li><b>Consultation</b><span>Objectives, site, budget and schedule, with sketches and a proposal.</span></li>
+          <li><b>Schematic design</b><span>Site analysis, plans, elevations, materials and an early cost estimate.</span></li>
+          <li><b>Design development</b><span>Rooms, windows, interiors and details refined, with renderings.</span></li>
+          <li><b>Construction documents</b><span>A coordinated, stamped set, submitted for permit.</span></li>
+          <li><b>Bidding &amp; construction</b><span>Bid review, site visits, contractor questions and shop drawings.</span></li>
+        </ol>
+        <div class="offer-m"><span class="caps">Homeowners &middot; all phases</span><b>Full architectural services</b><p><b>By proposal</b> after an initial consultation</p></div>
+        <div class="offer-m"><span class="caps">Builders &middot; construction documents</span><b>Construction &amp; permit documents</b><p><b>Fixed fee per sq ft</b> quoted per project, through permit; hourly after</p></div>
+      </div>
+      <div class="svc-foot">
+        <span class="caps">Builder fee includes code review, stamped drawings, permit submission and plan review responses</span>
+        <span class="caps">Excludes ARB &amp; HOA reviews</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="profile" aria-label="Profile">
+    <div class="wrap">
+      <div class="label"><span class="caps">Profile</span><span class="caps">Clients</span></div>
+      <div class="profile">
+        <div>
+          <div class="who-row">
+            <img src="img/portrait-color.jpg" alt="James Kehl outdoors" loading="lazy">
+            <div>
+              <b>James Kehl, RA</b>
+              <span class="caps" style="display:block">Principal &amp; Owner</span>
+              <p>I established James Kehl Architects in 2023 after more than a decade at award-winning studios in New York, Los Angeles and Minneapolis, designing and managing residential, educational, cultural and institutional projects across the country.</p>
+            </div>
+          </div>
+          <ul class="career">
+            <li><b>HGA</b><span>Associate, arts, community &amp; education practice. AIA Minnesota Honor Award.</span></li>
+            <li><b>Matt Peterson Studio</b><span>Project manager, luxury custom residence</span></li>
+            <li><b>Studio William Hefner</b><span>Project architect, high-end residential</span></li>
+            <li><b>Kohn Pedersen Fox &middot; REX</b><span>Design</span></li>
+            <li><b>Yale School of Architecture</b><span>Master of Architecture</span></li>
+            <li><b>University of Cincinnati</b><span>Bachelor of Science in Architecture</span></li>
+          </ul>
+        </div>
+        <div class="quotes">
+          <blockquote>
+            <p>“He’s a great listener, communicator, and will get the job done. He is an incredible liaison with contractors and vendors, watches budget and costs carefully, and is very honest. Our home is beautiful.”</p>
+            <span class="caps">Sarah Agor &middot; Barrow Court renovation, Westlake Village</span>
+          </blockquote>
+          <blockquote>
+            <p>“The level of detail, skill, thoughtfulness, and oversight he brings to our project goes beyond what is required. He owns the project, and it is apparent with every detail.”</p>
+            <span class="caps">James &amp; Doriana Hartzler &middot; new residence</span>
+          </blockquote>
+          <blockquote>
+            <p>“His expert knowledge of building codes and creative problem-solving design skills were key to the success of our project.”</p>
+            <span class="caps">Phil &amp; Rosanna Lu &middot; addition</span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="c-grid">
+      <div>
+        <span class="caps">Inquiries</span>
+        <h2 class="serif">Tell me about your project.</h2>
+      </div>
+      <div class="item"><span class="caps">Email</span><p class="mail"><a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a></p></div>
+      <div class="item"><span class="caps">Telephone</span><p><a href="tel:+17402587575">740-258-7575</a></p></div>
+      <div class="item"><span class="caps">Region</span><p>Central Ohio</p></div>
+    </div>
+    <div class="c-base">
+      <span class="mark" role="img" aria-label="JKA"></span>
+      <span class="caps">&copy; 2026 James Kehl Architects &middot; Licensed in Ohio &amp; California</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
