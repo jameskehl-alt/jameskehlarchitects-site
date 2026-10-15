@@ -78,8 +78,14 @@ b, strong { font-weight: 500; }
 .creds div { padding: 13px 0; border-bottom: 1px solid var(--line); display: grid; gap: 1px; }
 .creds div:nth-child(odd) { padding-right: 16px; }
 .creds dd { font-size: 15px; font-weight: 400; line-height: 1.4; }
-.open-img img { width: 100%; height: 100%; min-height: 360px; max-height: 72vh; object-fit: cover; }
-@media (max-width: 900px) { .open { grid-template-columns: 1fr; } .open-img img { min-height: 0; aspect-ratio: 4 / 3; } }
+.open-img { position: relative; overflow: hidden; background: var(--stone); min-height: 360px; max-height: 72vh; height: 100%; }
+.open-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.8s ease; }
+.open-img img.on { opacity: 1; }
+.open-img .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px; color: #fff; font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; background: linear-gradient(to top, rgba(31,31,29,0.45), rgba(31,31,29,0)); pointer-events: none; }
+.open-img .cap span { display: block; opacity: 0; transition: opacity .9s ease; }
+.open-img .cap span.on { opacity: 1; }
+@media (max-width: 900px) { .open { grid-template-columns: 1fr; } .open-img { min-height: 0; max-height: none; height: auto; aspect-ratio: 4 / 3; } }
+@media (prefers-reduced-motion: reduce) { .open-img img, .open-img .cap span { transition: none; } }
 
 /* ---------- Image wall ---------- */
 .wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 12.5vw, 200px); gap: var(--gap); }
@@ -218,7 +224,14 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
         <div><dt class="caps">Practice</dt><dd>Full service &amp; construction documents</dd></div>
       </dl>
     </div>
-    <div class="open-img"><img src="img/hartzler-front.jpg" alt="A stone and plaster French country house on a broad lawn"></div>
+    <div class="open-img" id="hero" aria-live="off">
+      <img class="on" src="img/hartzler-front.jpg" alt="A stone and plaster French country house on a broad lawn" data-cap="Hartzler Residence &middot; Ohio">
+      <img src="img/hero-forest.jpg" alt="Gabled wood house with a pool in a pine forest at sunrise" loading="lazy" data-cap="Chen Hoffbauer Residence &middot; Design proposal">
+      <img src="img/hero-reich.jpg" alt="Timber-lined rehearsal hall with two pianos and tall windows onto the woods" loading="lazy" data-cap="Reich Hall, Marlboro Music &middot; With HGA">
+      <img src="img/hero-hillsdale.jpg" alt="Living room with glass corner opening to a terrace at sunset" loading="lazy" data-cap="Hillsdale Residence &middot; Design proposal">
+      <img src="img/hero-simons.jpg" alt="Brick arts center with a colored-fin screen and lit lobby at dusk" loading="lazy" data-cap="Simons Center for the Arts &middot; With HGA">
+      <div class="cap"><span class="on">Hartzler Residence &middot; Ohio</span></div>
+    </div>
   </section>
 
   <section class="wrap" id="work" aria-label="Work">
@@ -357,5 +370,34 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
     </div>
   </div>
 </footer>
+<script>
+(function () {
+  var hero = document.getElementById('hero');
+  if (!hero) return;
+  var imgs = hero.querySelectorAll('img'), cap = hero.querySelector('.cap span');
+  if (imgs.length < 2) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0, hold = 6000, timer;
+  function show(n) {
+    imgs[i].classList.remove('on');
+    i = n % imgs.length;
+    imgs[i].classList.add('on');
+    cap.classList.remove('on');
+    setTimeout(function () { cap.innerHTML = imgs[i].dataset.cap; cap.classList.add('on'); }, reduce ? 0 : 700);
+  }
+  function next() { show(i + 1); }
+  function start() { stop(); timer = setInterval(next, hold); }
+  function stop() { if (timer) clearInterval(timer); timer = null; }
+  if (reduce) return;
+  // Don't fade to an image that hasn't loaded yet; warm the next one before each step.
+  var warm = function () { var n = imgs[(i + 1) % imgs.length]; if (!n.complete) n.loading = 'eager'; };
+  warm();
+  hero.addEventListener('click', function () { next(); start(); });
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (e) { e[0].isIntersecting ? start() : stop(); }) : null;
+  io ? io.observe(hero) : start();
+  setInterval(warm, hold);
+})();
+</script>
 </body>
 </html>
