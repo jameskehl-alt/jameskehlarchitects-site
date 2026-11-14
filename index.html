@@ -67,7 +67,7 @@ b, strong { font-weight: 500; }
 .nav a { position: relative; display: flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
 .nav a:hover::after { border-bottom-color: var(--ink); }
-@media (max-width: 760px) { .brand .name { display: none; } }
+@media (max-width: 880px) { .brand .name { display: none; } }
 .n-proj { gap: 0 .45em; }
 @media (max-width: 600px) { .nav .n-work { display: none; } .nav .n-proj { flex-direction: column; align-items: flex-start; justify-content: center; line-height: 1.3; } }
 @media (max-width: 440px) { .nav { gap: 12px; } .nav a { letter-spacing: 0.12em; font-size: 11px; } }
@@ -154,52 +154,45 @@ b, strong { font-weight: 500; }
 .label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; border-top: 1px solid var(--ink); padding-top: 12px; margin-bottom: clamp(20px, 2.4vw, 32px); }
 .label .caps:first-child { color: var(--ink); font-weight: 500; }
 
-/* ---------- Approach ---------- */
-.phil { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 4vw, 72px); }
-.phil .lede { font-size: 20px; line-height: 1.5; font-weight: 300; max-width: 24em; }
-.tenets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); }
-.tenets li { padding-block: 16px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
-.tenets b { font-size: 16px; }
-.tenets span { color: var(--soft); font-size: 15.5px; line-height: 1.6; }
-@media (max-width: 900px) { .phil { grid-template-columns: 1fr; } }
-@media (max-width: 600px) { .tenets { grid-template-columns: 1fr; } }
+/* ---------- Approach and Services: one grid. A narrow left column for the lead or the part label,
+   a wide right column in two halves, so every block lines up on the same three edges. ---------- */
+.split { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 12px clamp(28px, 4vw, 72px); align-items: start; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); }
+.split .lede { font-size: 20px; line-height: 1.5; font-weight: 300; max-width: 24em; }
+h2.caps, h3.caps { line-height: 1.7; }
+.tenets li { padding-block: 16px 20px; border-top: 1px solid var(--line); }
+.tenets h3, .offer h3 { font-family: var(--sans); font-size: 17px; font-weight: 500; line-height: 1.35; }
+.tenets p { color: var(--soft); font-size: 15.5px; line-height: 1.6; margin-top: 6px; }
+@media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .pair { grid-template-columns: 1fr; } }
 
-/* ---------- Services: phase coverage ---------- */
-.svc-scroll { overflow-x: auto; }
-.phases { display: grid; grid-template-columns: minmax(210px, 1.3fr) repeat(5, minmax(120px, 1fr)); min-width: 880px; }
-.phases .ph { padding: 0 16px 18px 0; display: grid; gap: 6px; align-content: start; border-bottom: 1px solid var(--rule); }
-.phases .ph b { font-size: 15px; line-height: 1.3; }
-.phases .ph span { color: var(--soft); font-size: 15px; line-height: 1.5; }
-.phases .corner { border-bottom: 1px solid var(--rule); }
-.offer { display: contents; }
-.offer > .who { padding: 24px 20px 24px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: center; }
-.offer > .who b { font-size: 17px; font-weight: 500; line-height: 1.3; }
-.offer > .track { border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding-block: 24px; }
-.offer > .track .fee { font-size: 15px; color: var(--soft); }
-.offer > .track .fee b { color: var(--ink); font-size: 17px; margin-right: 8px; }
-.svc-m { display: none; }
-@media (max-width: 760px) {
-  .svc-scroll { display: none; }
-  .svc-m { display: grid; gap: 28px; }
-  .svc-m ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-  .svc-m li { padding-block: 10px; border-bottom: 1px solid var(--rule); display: grid; }
-  .svc-m li span { color: var(--soft); font-size: 15px; line-height: 1.5; }
-  .svc-m .offer-m { display: grid; gap: 4px; padding-top: 16px; border-top: 3px solid var(--bar); }
-  .svc-m .offer-m p { color: var(--soft); font-size: 15px; }
-  .svc-m .offer-m p b { color: var(--ink); font-size: 16px; }
-}
-.svc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 18px; }
-.more { display: grid; margin-top: clamp(28px, 3.4vw, 44px); border-top: 1px solid var(--ink); }
-.more a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 15px; font-weight: 400; line-height: 1.35; }
-.more a::after { content: "\2192"; color: var(--soft); transition: transform .3s; }
+/* ---------- Services ---------- */
+.svc { display: grid; gap: clamp(32px, 4vw, 52px); }
+.svc .part { padding-top: 16px; color: var(--ink); font-weight: 500; }
+.offers { gap: var(--gap) clamp(24px, 3vw, 48px); }
+.offer { display: flex; flex-direction: column; background: var(--page); padding: 22px 24px 18px; }
+.offer h3 { margin-top: 6px; }
+.offer .what { color: var(--soft); font-size: 15.5px; line-height: 1.6; margin-top: 6px; padding-bottom: 18px; }
+.offer .fee { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); color: var(--soft); font-size: 15px; }
+.offer .fee b { color: var(--ink); margin-right: 8px; }
+.phases { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--rule); }
+.phases li { padding-block: 14px; border-top: 1px solid var(--rule); align-items: baseline; }
+.phases b { font-size: 15.5px; line-height: 1.4; }
+.phases span { color: var(--soft); font-size: 15.5px; line-height: 1.5; }
+.more { border-bottom: 1px solid var(--rule); }
+.more li { border-top: 1px solid var(--rule); }
+.more a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding-block: 12px; font-size: 15.5px; line-height: 1.35; }
+.more a::after { content: "\2192"; color: var(--soft); transition: transform .3s, color .3s; }
 .more a:hover::after { transform: translateX(4px); color: var(--ink); }
-@media (min-width: 1000px) { .more { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(16px, 2vw, 32px); } .more a { align-items: start; } }
+@media (min-width: 601px) { .more { border-bottom: 0; } .more li { border-top: 0; border-bottom: 1px solid var(--rule); } .more li:nth-child(-n+2) { border-top: 1px solid var(--rule); } }
+@media (max-width: 900px) { .svc .part { padding-top: 0; } }
+@media (max-width: 600px) { .phases li { gap: 2px; } }
 
 /* ---------- Profile ---------- */
 .profile { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 4vw, 72px); align-items: start; }
 .who-row { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px; align-items: start; }
 .who-row img { width: 112px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%; }
-.who-row b { font-size: 17px; }
+.who-row h3 { font-family: var(--sans); font-size: 17px; font-weight: 500; line-height: 1.7; }
 .who-row p { color: var(--soft); margin-top: 8px; font-size: 15.5px; line-height: 1.65; }
 .career { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
 .career li { padding-block: 11px; border-top: 1px solid var(--rule); display: grid; }
@@ -268,7 +261,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
         <span class="caps">Residential Architecture &middot; Ohio</span>
         <h1 class="serif">Inspirational architecture that feels like home.</h1>
         <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new houses to the careful renovation of existing ones. The firm also draws permit sets for additions, garages, pole barns and site plans for owners and builders anywhere in Ohio.</p>
-        <p class="intro">JKA is a solo practice. James works directly with homeowners and builders across Ohio, and leads every project personally, from the first conversation through construction.</p>
+        <p class="intro">JKA is a solo practice. James leads every project personally, from the first conversation through construction.</p>
       </div>
       <dl class="creds">
         <div><dt class="caps">Licensed</dt><dd>Ohio &amp; California</dd></div>
@@ -307,81 +300,76 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
     <p class="wall-note"><span class="caps">Houses, interiors and construction documents</span><a class="caps" href="/current-projects/">See current projects</a></p>
   </section>
 
-  <section class="band" id="approach" aria-label="Approach">
+  <section class="band" id="approach" aria-labelledby="h-approach">
     <div class="wrap">
-      <div class="label"><span class="caps">Approach</span></div>
-      <div class="phil">
+      <div class="label"><h2 class="caps" id="h-approach">Approach</h2></div>
+      <div class="split">
         <p class="lede">Dedication to the craft and to clients is at the heart of the practice. Every project begins by listening.</p>
-        <ul class="tenets">
-          <li><b>How you live</b><span>Your needs, interests and way of life inform the ideas and the style of the architecture.</span></li>
-          <li><b>House, interiors &amp; landscape</b><span>Each residence is designed together with its interiors and landscape, to create rich environments that uplift and inspire.</span></li>
-          <li><b>Budget &amp; constraints</b><span>James embraces the requirements and constraints of a project and thinks rationally about how to maximize its value and potential.</span></li>
-          <li><b>Codes &amp; construction</b><span>You get advice on planning and building codes, construction best practices and sustainable design, so decisions are made with full information.</span></li>
+        <ul class="pair tenets">
+          <li><h3>How you live</h3> <p>Your needs, interests and way of life inform the ideas and the style of the architecture.</p></li>
+          <li><h3>House, interiors &amp; landscape</h3> <p>Each residence is designed together with its interiors and landscape, to create rich environments that uplift and inspire.</p></li>
+          <li><h3>Budget &amp; constraints</h3> <p>James embraces the requirements and constraints of a project and thinks rationally about how to maximize its value and potential.</p></li>
+          <li><h3>Codes &amp; construction</h3> <p>You get advice on planning and building codes, construction best practices and sustainable design, so decisions are made with full information.</p></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="band tint" id="services" aria-label="Services">
+  <section class="band tint" id="services" aria-labelledby="h-services">
     <div class="wrap">
-      <div class="label"><span class="caps">Services</span><span class="caps">For homeowners &amp; builders</span></div>
-      <div class="svc-scroll">
-        <div class="phases" role="table" aria-label="Services by phase">
-          <div class="corner" role="columnheader"></div>
-          <div class="ph" role="columnheader"><b>Consultation</b><span>Objectives, site, budget and schedule, with sketches and a proposal.</span></div>
-          <div class="ph" role="columnheader"><b>Schematic design</b><span>Site analysis, plans, elevations, materials and an early cost estimate.</span></div>
-          <div class="ph" role="columnheader"><b>Design development</b><span>Rooms, windows, interiors and details refined, with renderings.</span></div>
-          <div class="ph" role="columnheader"><b>Construction documents</b><span>A coordinated, stamped set, submitted for permit.</span></div>
-          <div class="ph" role="columnheader"><b>Bidding &amp; construction</b><span>Bid review, site visits, contractor questions and shop drawings.</span></div>
-
-          <div class="offer" role="row">
-            <div class="who" role="rowheader"><span class="caps">Homeowners</span><b>Full architectural services</b></div>
-            <div class="track" role="cell" style="grid-column: span 5">
-              <p class="fee" style="grid-column: 1 / 6"><b>By proposal</b>after an initial consultation</p>
+      <div class="label"><h2 class="caps" id="h-services">Services</h2><span class="caps">For homeowners &amp; builders</span></div>
+      <div class="svc">
+        <div class="split">
+          <h3 class="caps part">Scope</h3>
+          <div class="pair offers">
+            <div class="offer">
+              <span class="caps">Homeowners</span>
+              <h3>Full architectural services</h3>
+              <p class="what">All phases, from consultation through construction.</p>
+              <p class="fee"><b>By proposal</b> after an initial consultation</p>
             </div>
-          </div>
-          <div class="offer" role="row">
-            <div class="who" role="rowheader"><span class="caps">Builders</span><b>Permit and CD Sets</b></div>
-            <div class="track" role="cell" style="grid-column: span 5">
-              <p class="fee" style="grid-column: 1 / 6"><b>By proposal</b>scope agreed in writing per project</p>
+            <div class="offer">
+              <span class="caps">Builders</span>
+              <h3>Permit and CD Sets</h3>
+              <p class="what">Builder sets include sealed drawings, permit submission and plan review responses.</p>
+              <p class="fee"><b>By proposal</b> scope agreed in writing per project</p>
             </div>
           </div>
         </div>
+        <div class="split">
+          <h3 class="caps part" id="h-phases">Phases</h3>
+          <ol class="phases" aria-labelledby="h-phases">
+            <li class="pair"><b>Consultation</b> <span>Objectives, site, budget and schedule, with sketches and a proposal.</span></li>
+            <li class="pair"><b>Schematic design</b> <span>Site analysis, plans, elevations, materials and an early cost estimate.</span></li>
+            <li class="pair"><b>Design development</b> <span>Rooms, windows, interiors and details refined, with renderings.</span></li>
+            <li class="pair"><b>Construction documents</b> <span>A coordinated, stamped set, submitted for permit.</span></li>
+            <li class="pair"><b>Bidding &amp; construction</b> <span>Bid review, site visits, contractor questions and shop drawings.</span></li>
+          </ol>
+        </div>
+        <nav class="split" aria-labelledby="h-pages">
+          <h3 class="caps part" id="h-pages">Service pages</h3>
+          <ul class="pair more">
+            <li><a href="/custom-home-architect-ohio/">New custom home design</a></li>
+            <li><a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a></li>
+            <li><a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a></li>
+            <li><a href="/zoning-site-plans-ohio/">Zoning and site plans</a></li>
+            <li><a href="/builders/">Construction documents for builders</a></li>
+            <li><a href="/listing-feasibility-studies-ohio/">Listing feasibility studies</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="svc-m">
-        <ol>
-          <li><b>Consultation</b><span>Objectives, site, budget and schedule, with sketches and a proposal.</span></li>
-          <li><b>Schematic design</b><span>Site analysis, plans, elevations, materials and an early cost estimate.</span></li>
-          <li><b>Design development</b><span>Rooms, windows, interiors and details refined, with renderings.</span></li>
-          <li><b>Construction documents</b><span>A coordinated, stamped set, submitted for permit.</span></li>
-          <li><b>Bidding &amp; construction</b><span>Bid review, site visits, contractor questions and shop drawings.</span></li>
-        </ol>
-        <div class="offer-m"><span class="caps">Homeowners &middot; all phases</span><b>Full architectural services</b><p><b>By proposal</b> after an initial consultation</p></div>
-        <div class="offer-m"><span class="caps">Builders &middot; construction documents</span><b>Permit and CD Sets</b><p><b>By proposal</b> scope agreed in writing per project</p></div>
-      </div>
-      <div class="svc-foot">
-        <span class="caps">Builder sets include sealed drawings, permit submission and plan review responses</span>
-      </div>
-      <nav class="more" aria-label="Service pages">
-        <a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a>
-        <a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a>
-        <a href="/custom-home-architect-ohio/">New custom home design</a>
-        <a href="/zoning-site-plans-ohio/">Zoning and site plans</a>
-        <a href="/builders/">Construction documents for builders</a>
-        <a href="/listing-feasibility-studies-ohio/">Listing feasibility studies</a>
-      </nav>
     </div>
   </section>
 
-  <section class="band" id="profile" aria-label="Profile">
+  <section class="band" id="profile" aria-labelledby="h-profile">
     <div class="wrap">
-      <div class="label"><span class="caps">Profile</span><span class="caps">Clients</span></div>
+      <div class="label"><h2 class="caps" id="h-profile">Profile</h2><span class="caps">Clients</span></div>
       <div class="profile">
         <div>
           <div class="who-row">
             <img src="img/portrait-color.jpg" alt="James Kehl outdoors" loading="lazy">
             <div>
-              <b>James Kehl, RA</b>
+              <h3>James Kehl, RA</h3>
               <span class="caps" style="display:block">Principal &amp; Owner</span>
               <p>James established James Kehl Architects in 2023 after more than a decade at award-winning studios in New York, Los Angeles and Minneapolis, designing and managing residential, commercial, educational, cultural and institutional projects across the country.</p>
             </div>
