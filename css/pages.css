@@ -55,6 +55,7 @@ b, strong { font-weight: 500; }
   .fig-plan.at-left img { transform-origin: 22% 50%; }
   .fig-elev img { object-position: 52% 50%; transform: scale(1.12); transform-origin: 55% 62%; }
   .fig-elev.at-left img { object-position: 0% 50%; transform-origin: 0% 70%; }
+  .fig-elevc img { object-position: 47% 70%; transform: scale(1.25); transform-origin: 47% 70%; }
   .fig-axon img { transform: scale(1.1); transform-origin: 50% 46%; }
   .intro-list ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
   .intro-list li { padding-block: 7px; border-bottom: 1px solid var(--line); }
