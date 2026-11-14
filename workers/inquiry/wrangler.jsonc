@@ -1,15 +1,13 @@
-// Inquiry form handler for jameskehlarchitects.com/api/inquiry.
-// Sends each inquiry to the verified JKA inbox through Cloudflare Email Service.
-// One-time setup (Cloudflare dashboard, JKA account):
-//   1. Email Service > Email Sending > Onboard Domain: forms.jameskehlarchitects.com
-//      (adds cf-bounce MX, SPF, DKIM, DMARC on the subdomain only; Google mail on the root is untouched).
-//   2. Email Routing > Destination Addresses: add james@jameskehlarchitects.com and click the verify link once.
-//   3. npx wrangler deploy  (from this folder)
+// Inquiry form handler for jameskehlarchitects.com/api/inquiry (Workers free plan).
+// It relays each inquiry to the Apps Script web app "JKA website inquiries" in James's Google account
+// (james.kehl@gmail.com), which emails it to james@jameskehlarchitects.com. The route sits in front of the
+// site's custom domain for this one path. Secrets (set in the dashboard or with `wrangler secret put`):
+//   SCRIPT_URL   the web app's /exec URL
+//   RELAY_TOKEN  the token in the script
 {
   "name": "jka-inquiry",
   "main": "src/index.js",
   "compatibility_date": "2026-11-01",
   "routes": [{ "pattern": "jameskehlarchitects.com/api/inquiry", "zone_name": "jameskehlarchitects.com" }],
-  "send_email": [{ "name": "INQUIRY", "destination_address": "james@jameskehlarchitects.com" }],
-  "vars": { "FROM": "inquiries@forms.jameskehlarchitects.com", "TO": "james@jameskehlarchitects.com" }
+  "observability": { "enabled": true }
 }
