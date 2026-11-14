@@ -209,6 +209,7 @@ b, strong { font-weight: 500; }
 .p-pics img { width: 100%; height: 100%; object-fit: cover; }
 .p-lg { grid-column: 1 / -1; }
 .n1 .p-sm { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
+.n3 .p-sm:last-child, .n5 .p-sm:last-child { grid-column: 1 / -1; aspect-ratio: 21 / 9; }
 .p-pics img[src*="loft-library"] { object-position: 50% 42%; }
 .p-pics img[src*="sunrose-sunroom"] { object-position: 50% 62%; }
 .p-text h2 { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.15; }
