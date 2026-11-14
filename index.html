@@ -68,6 +68,8 @@ b, strong { font-weight: 500; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
 .nav a:hover::after { border-bottom-color: var(--ink); }
 @media (max-width: 760px) { .brand .name { display: none; } }
+.n-proj { gap: 0 .45em; }
+@media (max-width: 600px) { .nav .n-work { display: none; } .nav .n-proj { flex-direction: column; align-items: flex-start; justify-content: center; line-height: 1.3; } }
 @media (max-width: 440px) { .nav { gap: 12px; } .nav a { letter-spacing: 0.12em; font-size: 11px; } }
 
 /* ---------- Opening ---------- */
@@ -104,11 +106,17 @@ b, strong { font-weight: 500; }
 
 /* ---------- Image wall ---------- */
 .wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(168px, 14.5vw, 224px); gap: var(--gap); }
-.wall figure { margin: 0; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+.wall figure { position: relative; margin: 0; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
 .wall .ph { display: block; flex: 1 1 0; min-height: 0; overflow: hidden; background: var(--stone); }
 .wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
 .wall figure:hover img { transform: scale(1.03); }
 .wall figcaption { flex: none; padding-top: 7px; font-family: var(--sans); font-size: 12px; font-weight: 400; line-height: 1.45; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+.wall figcaption a { display: flex; justify-content: space-between; gap: 12px; }
+.wall figcaption a::before { content: ""; position: absolute; inset: 0; }
+.wall figcaption a::after { content: "\2192"; color: var(--soft); letter-spacing: 0; transition: transform .3s, color .3s; }
+.wall figure:hover figcaption a::after { transform: translateX(4px); color: var(--ink); }
+.wall figcaption a:focus-visible { outline: none; }
+.wall figcaption a:focus-visible::before { outline: 2px solid var(--ink); outline-offset: 2px; }
 .wall .draw .ph { background: #fff; border: 1px solid var(--line); }
 .wall .draw img { object-fit: contain; padding: 10px; }
 .wall .draw:hover img { transform: scale(1.12); }
@@ -121,8 +129,12 @@ b, strong { font-weight: 500; }
 .g { grid-area: 5 / 1 / 6 / 3; }
 .h { grid-area: 5 / 3 / 6 / 5; }
 .i { grid-area: 5 / 5 / 6 / 7; }
-.wall .f img { object-position: 30% 50%; }
-.wall-note { padding-top: 14px; }
+.wall .e img { object-position: 50% 58%; }
+.wall .g img { object-position: 50% 62%; }
+.wall-note { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding-top: 10px; }
+.wall-note a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); font-weight: 500; }
+.wall-note a::after { content: "\2192"; letter-spacing: 0; color: var(--soft); transition: transform .3s, color .3s; }
+.wall-note a:hover::after { transform: translateX(4px); color: var(--ink); }
 @media (min-width: 761px) and (max-width: 1180px) { .wall figcaption { min-height: calc(2.9em + 7px); } }
 @media (max-width: 760px) {
   .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; row-gap: 16px; align-items: start; }
@@ -240,7 +252,8 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       <span class="name">James Kehl Architects</span>
     </a>
     <nav class="nav" aria-label="Main">
-      <a href="#work">Work</a>
+      <a class="n-work" href="#work">Work</a>
+      <a class="n-proj" href="/current-projects/">Current <span>projects</span></a>
       <a href="#services">Services</a>
       <a href="/questions/">Questions</a>
       <a href="/inquiry/">Contact</a>
@@ -254,8 +267,8 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       <div>
         <span class="caps">Residential Architecture &middot; Ohio</span>
         <h1 class="serif">Inspirational architecture that feels like home.</h1>
-        <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new houses to the careful renovation of existing ones. I also draw permit sets for additions, garages, pole barns and site plans for owners and builders anywhere in Ohio.</p>
-        <p class="intro">JKA is a solo practice. I work directly with homeowners and builders across Ohio, and I lead every project personally, from the first conversation through construction.</p>
+        <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new houses to the careful renovation of existing ones. The firm also draws permit sets for additions, garages, pole barns and site plans for owners and builders anywhere in Ohio.</p>
+        <p class="intro">JKA is a solo practice. James works directly with homeowners and builders across Ohio, and leads every project personally, from the first conversation through construction.</p>
       </div>
       <dl class="creds">
         <div><dt class="caps">Licensed</dt><dd>Ohio &amp; California</dd></div>
@@ -265,9 +278,9 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       </dl>
     </div>
     <div class="open-img" id="hero" aria-live="off">
-      <img class="on" src="img/hero-loft-living.jpg" alt="Built loft in Minneapolis: white living room with tall windows, a glass fireplace set in a low white wall, a grey Womb chair and pale wood floors" data-cap="Built &middot; Loft renovation, Minneapolis">
-      <img src="img/ohio-estate-front.jpg" alt="Rendering of a proposed French country house in Ohio: white plaster walls, grey-green shutters and a slate hipped roof across a broad lawn" loading="lazy" data-cap="Design proposal &middot; Ohio">
-      <div class="cap"><span class="on">Built &middot; Loft renovation, Minneapolis</span></div>
+      <img class="on" src="img/ohio-estate-front.jpg" alt="French country house in Ohio: white plaster walls, grey-green shutters and a slate hipped roof across a broad lawn" data-cap="Country house &middot; Ohio">
+      <img src="img/hero-loft-living.jpg" alt="Loft living room in Minneapolis: tall windows, a glass fireplace set in a low white wall, a grey Womb chair and pale wood floors" loading="lazy" data-cap="Loft &middot; Minneapolis">
+      <div class="cap"><span class="on">Country house &middot; Ohio</span></div>
     </div>
   </section>
 
@@ -279,29 +292,29 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
 
   <section class="wrap" id="work" aria-label="Work">
     <div class="wall">
-      <figure class="a"><span class="ph"><img src="img/ohio-estate-dusk.jpg" alt="Rendering of the proposed Ohio country house at dusk: the lit garden front and covered terrace with a stone fireplace, seen across the pool" loading="lazy"></span><figcaption>Design proposal &middot; Ohio</figcaption></figure>
-      <figure class="b"><span class="ph"><img src="img/loft-lounge.jpg" alt="Built loft in Minneapolis: seating area on a grey rug with pale sofas and a marble table, open to a white oak kitchen with an island" loading="lazy"></span><figcaption>Built &middot; Loft renovation, Minneapolis</figcaption></figure>
-      <figure class="c draw"><span class="ph"><img src="img/plan.jpg" alt="Reflected ceiling plan of the first floor of the Ohio country house, with grid lines, dimensions and fixture tags" loading="lazy"></span><figcaption>Construction drawing &middot; Ohio country house</figcaption></figure>
-      <figure class="d"><span class="ph"><img src="img/int-bath.jpg" alt="Rendering of a proposed primary bath: freestanding tub before arched garden doors, walnut vanities and a brass chandelier under a vaulted ceiling" loading="lazy"></span><figcaption>Design proposal &middot; interior</figcaption></figure>
-      <figure class="e"><span class="ph"><img src="img/loft-fire.jpg" alt="Built loft in Minneapolis: three-sided glass fireplace in a white partition, with the bedroom visible through the flames" loading="lazy"></span><figcaption>Built &middot; Loft renovation, Minneapolis</figcaption></figure>
-      <figure class="f"><span class="ph"><img src="img/int-room.jpg" alt="Rendering of a proposed great room: two-storey stone fireplace and a coffered kitchen with a marble island" loading="lazy"></span><figcaption>Design proposal &middot; interior</figcaption></figure>
-      <figure class="g draw"><span class="ph"><img src="img/elev-north.jpg" alt="North elevation of the Ohio country house, with material tags, detail callouts and dimensions" loading="lazy"></span><figcaption>Construction drawing &middot; Ohio country house</figcaption></figure>
-      <figure class="h draw"><span class="ph"><img src="img/cabin-axon.jpg" alt="Axonometric line drawing of a small cabin showing wall studs, deck joists and entry steps" loading="lazy"></span><figcaption>Framing drawing &middot; small cabin</figcaption></figure>
-      <figure class="i"><span class="ph"><img src="img/ohio-estate-pool.jpg" alt="Rendering of the proposed Ohio country house grounds: pool terrace beside a stone garden wall with a fountain, a wing of the house beyond" loading="lazy"></span><figcaption>Design proposal &middot; Ohio</figcaption></figure>
+      <figure class="a"><span class="ph"><img src="img/ohio-estate-dusk.jpg" alt="Ohio country house at dusk: the lit garden front and covered terrace with a stone fireplace, seen across the pool" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
+      <figure class="b"><span class="ph"><img src="img/wyoming-workshop.jpg" alt="A dark metal-clad workshop with a tall vehicle door, two wood garage doors and a timber entry canopy, on a gravel apron under a blue sky" loading="lazy"></span><figcaption><a href="/pole-barn-drawings-ohio/">Barns and outbuildings</a></figcaption></figure>
+      <figure class="c draw"><span class="ph"><img src="img/plan.jpg" alt="Reflected ceiling plan of the first floor of the Ohio country house, with grid lines, dimensions and fixture tags" loading="lazy"></span><figcaption><a href="/builders/">Construction documents</a></figcaption></figure>
+      <figure class="d"><span class="ph"><img src="img/loft-kitchen.jpg" alt="Loft kitchen in Minneapolis: flat oak cabinets on two walls, a white island with an oak counter and white wire stools, on pale wood floors" loading="lazy"></span><figcaption><a href="/permit-drawings-ohio/">Renovations</a></figcaption></figure>
+      <figure class="e"><span class="ph"><img src="img/sunrose-bar.jpg" alt="Restaurant bar in Los Angeles: a long oak bar with a marble top and bentwood stools, under a row of frosted glass cabinets in an oak frame" loading="lazy"></span><figcaption><a href="/permit-drawings-ohio/">Renovations</a></figcaption></figure>
+      <figure class="f"><span class="ph"><img src="img/beach-house-porch.jpg" alt="A screened porch with a pale blue board ceiling, wicker seating and two white rocking chairs, looking over live oaks and a salt marsh" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
+      <figure class="g"><span class="ph"><img src="img/granville-house-front.jpg" alt="A two-storey house in Granville, Ohio: sage green siding, a stone chimney, a front porch and a two-door garage, across a lawn with a curved drive" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
+      <figure class="h draw"><span class="ph"><img src="img/elev-north.jpg" alt="North elevation of the Ohio country house, with material tags, detail callouts and dimensions" loading="lazy"></span><figcaption><a href="/builders/">Construction documents</a></figcaption></figure>
+      <figure class="i"><span class="ph"><img src="img/ohio-estate-pool.jpg" alt="Grounds of the Ohio country house: pool terrace beside a stone garden wall with a fountain, a wing of the house beyond" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
     </div>
-    <p class="caps wall-note">Houses, interiors and construction documents &middot; built work and design proposals</p>
+    <p class="wall-note"><span class="caps">Houses, interiors and construction documents</span><a class="caps" href="/current-projects/">See current projects</a></p>
   </section>
 
   <section class="band" id="approach" aria-label="Approach">
     <div class="wrap">
       <div class="label"><span class="caps">Approach</span></div>
       <div class="phil">
-        <p class="lede">Dedication to the craft and to my clients is at the heart of the practice. Every project begins by listening.</p>
+        <p class="lede">Dedication to the craft and to clients is at the heart of the practice. Every project begins by listening.</p>
         <ul class="tenets">
           <li><b>How you live</b><span>Your needs, interests and way of life inform the ideas and the style of the architecture.</span></li>
           <li><b>House, interiors &amp; landscape</b><span>Each residence is designed together with its interiors and landscape, to create rich environments that uplift and inspire.</span></li>
-          <li><b>Budget &amp; constraints</b><span>I embrace the requirements and constraints of a project and think rationally about how to maximize its value and potential.</span></li>
-          <li><b>Codes &amp; construction</b><span>I advise on planning and building codes, construction best practices and sustainable design, so decisions are made with full information.</span></li>
+          <li><b>Budget &amp; constraints</b><span>James embraces the requirements and constraints of a project and thinks rationally about how to maximize its value and potential.</span></li>
+          <li><b>Codes &amp; construction</b><span>You get advice on planning and building codes, construction best practices and sustainable design, so decisions are made with full information.</span></li>
         </ul>
       </div>
     </div>
@@ -353,6 +366,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
         <a href="/custom-home-architect-ohio/">New custom home design</a>
         <a href="/zoning-site-plans-ohio/">Zoning and site plans</a>
         <a href="/builders/">Construction documents for builders</a>
+        <a href="/listing-feasibility-studies-ohio/">Listing feasibility studies</a>
       </nav>
     </div>
   </section>
@@ -367,7 +381,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
             <div>
               <b>James Kehl, RA</b>
               <span class="caps" style="display:block">Principal &amp; Owner</span>
-              <p>I established James Kehl Architects in 2023 after more than a decade at award-winning studios in New York, Los Angeles and Minneapolis, designing and managing residential, commercial, educational, cultural and institutional projects across the country.</p>
+              <p>James established James Kehl Architects in 2023 after more than a decade at award-winning studios in New York, Los Angeles and Minneapolis, designing and managing residential, commercial, educational, cultural and institutional projects across the country.</p>
             </div>
           </div>
           <ul class="career">
@@ -403,7 +417,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
   <div class="wrap">
     <div class="label"><span class="caps">Start a project</span></div>
     <div class="cta-row">
-      <p class="serif big">Tell me what you want to build.</p>
+      <p class="serif big">Tell JKA what you want to build.</p>
       <div class="cta-acts"><a class="btn" href="/inquiry/">Send an inquiry</a><a class="tel" href="tel:+17402587575">740-258-7575</a></div>
     </div>
   </div>
@@ -411,9 +425,9 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
 <footer class="contact">
   <div class="wrap f-grid">
     <div class="f-id"><span class="caps">James Kehl Architects</span><p>James Kehl, RA &middot; Ohio registered architect</p><p><a href="tel:+17402587575">740-258-7575</a></p><p><a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a></p><p>Serving all of Ohio</p></div>
-    <nav aria-label="Services"><span class="caps">Services</span><ul><li><a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a></li><li><a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a></li><li><a href="/custom-home-architect-ohio/">New custom home design</a></li><li><a href="/zoning-site-plans-ohio/">Zoning and site plans</a></li><li><a href="/builders/">Construction documents for builders</a></li></ul></nav>
+    <nav aria-label="Services"><span class="caps">Services</span><ul><li><a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a></li><li><a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a></li><li><a href="/custom-home-architect-ohio/">New custom home design</a></li><li><a href="/zoning-site-plans-ohio/">Zoning and site plans</a></li><li><a href="/builders/">Construction documents for builders</a></li><li><a href="/listing-feasibility-studies-ohio/">Listing feasibility studies</a></li></ul></nav>
     <nav aria-label="Regions"><span class="caps">Regions</span><ul><li><a href="/regions/central-ohio/">Central Ohio</a></li><li><a href="/regions/columbus-suburbs/">Columbus suburbs</a></li><li><a href="/regions/northeast-ohio/">Northeast Ohio</a></li><li><a href="/regions/eastern-ohio/">Eastern Ohio and the Ohio Valley</a></li><li><a href="/regions/southwest-ohio/">Southwest Ohio</a></li><li><a href="/regions/northwest-ohio/">Northwest Ohio</a></li><li><a href="/regions/southeast-ohio/">Southeast Ohio</a></li></ul></nav>
-    <nav aria-label="Guides"><span class="caps">Guides</span><ul><li><a href="/guides/pole-barn-permit-ohio/">Do I need a permit for a pole barn in Ohio?</a></li><li><a href="/guides/ohio-agricultural-building-exemption/">Ohio's agricultural building exemption, explained</a></li><li><a href="/guides/zoning-site-plan-ohio/">What does a zoning site plan need in Ohio?</a></li><li><a href="/guides/do-i-need-an-architect-ohio/">Do I need an architect for a house or addition in Ohio?</a></li><li><a href="/questions/">Questions</a></li><li><a href="/about/">About</a></li></ul></nav>
+    <nav aria-label="Guides"><span class="caps">Guides</span><ul><li><a href="/guides/pole-barn-permit-ohio/">Do I need a permit for a pole barn in Ohio?</a></li><li><a href="/guides/ohio-agricultural-building-exemption/">Ohio's agricultural building exemption, explained</a></li><li><a href="/guides/zoning-site-plan-ohio/">What does a zoning site plan need in Ohio?</a></li><li><a href="/guides/do-i-need-an-architect-ohio/">Do I need an architect for a house or addition in Ohio?</a></li><li><a href="/questions/">Questions</a></li><li><a href="/current-projects/">Current projects</a></li><li><a href="/about/">About</a></li></ul></nav>
   </div>
   <div class="wrap"><div class="c-base"><span class="mark" role="img" aria-label="JKA"></span><span class="caps">&copy; 2026 James Kehl Architects</span></div></div>
 </footer>
