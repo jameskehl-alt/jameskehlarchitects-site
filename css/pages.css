@@ -223,3 +223,11 @@ b, strong { font-weight: 500; }
   .p-pics { order: 0; }
   .p-text { position: sticky; top: 88px; }
 }
+
+/* before and after pair on the permit drawings page */
+.ba{margin:28px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba div{position:relative}
+.ba img{display:block;width:100%;height:auto}
+.ba .caps{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.88);color:#1f1f1d;padding:3px 8px;font-size:11px;letter-spacing:.12em}
+.ba figcaption{grid-column:1/-1;font-size:14px;color:#1f1f1d;margin-top:4px}
+@media (max-width:600px){.ba{grid-template-columns:1fr}}
