@@ -1,9 +1,7 @@
-import { EmailMessage } from "cloudflare:email";
-
 const FIELDS = [
   ["project", "Project"], ["county", "County"], ["size", "Rough size"], ["budget", "Rough budget"],
   ["timeline", "Hopes to start"], ["survey", "Has a survey"], ["name", "Name"], ["email", "Email"],
-  ["phone", "Phone"], ["reach", "Best way and time"], ["notes", "Anything else"],
+  ["phone", "Phone"], ["reach", "Best way and time"], ["heard", "Heard about JKA from"], ["notes", "Anything else"],
 ];
 const clean = (v, n = 3000) => String(v || "").replace(/[\r\0]/g, "").trim().slice(0, n);
 const oneLine = (v) => clean(v, 200).replace(/\n/g, " ");
@@ -26,17 +24,19 @@ export default {
     const body = FIELDS.map(([k, label]) => `${label}: ${clean(form.get(k)) || "-"}`).join("\n\n")
       + `\n\n--\nSent from the inquiry form at jameskehlarchitects.com on ${new Date().toISOString()}.`;
     const subject = `New inquiry: ${oneLine(form.get("county")) || "Ohio"}, ${oneLine(form.get("name"))}`;
-    const id = `<${crypto.randomUUID()}@forms.jameskehlarchitects.com>`;
-    const raw = [
-      `From: JKA website <${env.FROM}>`, `To: <${env.TO}>`, `Reply-To: <${email}>`,
-      `Subject: ${subject.replace(/[^\x20-\x7E]/g, "")}`, `Message-ID: ${id}`, `Date: ${new Date().toUTCString()}`,
-      "MIME-Version: 1.0", "Content-Type: text/plain; charset=utf-8", "Content-Transfer-Encoding: 8bit", "", body,
-    ].join("\r\n");
     try {
-      await env.INQUIRY.send(new EmailMessage(env.FROM, env.TO, raw));
+      // Relay to the Apps Script web app in James's Google account, which emails the inquiry to him.
+      const r = await fetch(env.SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: env.RELAY_TOKEN, subject, body, replyTo: email }),
+        redirect: "follow",
+      });
+      const res = await r.json().catch(() => ({}));
+      if (!res.ok) throw new Error("relay said " + JSON.stringify(res));
       return done(true);
     } catch (e) {
-      console.log("send failed", e && e.message);
+      console.log("relay failed", e && e.message);
       return done(false, 502);
     }
   },
