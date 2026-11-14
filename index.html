@@ -105,9 +105,9 @@ b, strong { font-weight: 500; }
 @media (max-width: 700px) { .doors { grid-template-columns: 1fr; } .door-sm { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; } .door-sm > span { grid-column: 1; } .door-sm::after { grid-area: 1 / 2 / 3 / 3; align-self: center; margin: 0; } }
 
 /* ---------- Image wall ---------- */
-.wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(168px, 14.5vw, 224px); gap: var(--gap); }
+.wall { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); }
 .wall figure { position: relative; margin: 0; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
-.wall .ph { display: block; flex: 1 1 0; min-height: 0; overflow: hidden; background: var(--stone); }
+.wall .ph { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--stone); }
 .wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
 .wall figure:hover img { transform: scale(1.03); }
 .wall figcaption { flex: none; padding-top: 7px; font-family: var(--sans); font-size: 12px; font-weight: 400; line-height: 1.45; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
@@ -118,32 +118,16 @@ b, strong { font-weight: 500; }
 .wall figcaption a:focus-visible { outline: none; }
 .wall figcaption a:focus-visible::before { outline: 2px solid var(--ink); outline-offset: 2px; }
 .wall .draw .ph { background: #fff; border: 1px solid var(--line); }
-.wall .draw img { object-fit: contain; padding: 10px; }
-.wall .draw:hover img { transform: scale(1.12); }
-.a { grid-area: 1 / 1 / 3 / 4; }
-.b { grid-area: 1 / 4 / 3 / 7; }
-.c { grid-area: 3 / 1 / 5 / 3; }
-.d { grid-area: 3 / 3 / 5 / 5; }
-.e { grid-area: 3 / 5 / 4 / 7; }
-.f { grid-area: 4 / 5 / 5 / 7; }
-.g { grid-area: 5 / 1 / 6 / 3; }
-.h { grid-area: 5 / 3 / 6 / 5; }
-.i { grid-area: 5 / 5 / 6 / 7; }
-.wall .e img { object-position: 50% 58%; }
-.wall .g img { object-position: 50% 62%; }
+.wall .draw img { object-fit: contain; padding: 18px; }
+.wall .draw:hover img { transform: scale(1.04); }
 .wall-note { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding-top: 10px; }
 .wall-note a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); font-weight: 500; }
 .wall-note a::after { content: "\2192"; letter-spacing: 0; color: var(--soft); transition: transform .3s, color .3s; }
 .wall-note a:hover::after { transform: translateX(4px); color: var(--ink); }
 @media (min-width: 761px) and (max-width: 1180px) { .wall figcaption { min-height: calc(2.9em + 7px); } }
 @media (max-width: 760px) {
-  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; row-gap: 16px; align-items: start; }
-  .wall figure { grid-area: auto; grid-column: span 2; }
-  .wall .ph { flex: none; aspect-ratio: 3 / 2; }
-  .wall .c .ph { aspect-ratio: 10 / 9; }
-  .wall .g .ph { aspect-ratio: 2 / 1; }
-  .wall .e, .wall .f, .wall .h, .wall .i { grid-column: span 1; }
-  .wall .e .ph, .wall .f .ph, .wall .h .ph, .wall .i .ph { aspect-ratio: 1 / 1; }
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 16px; }
+  .wall .ph { aspect-ratio: 4 / 3; }
   .wall figcaption { font-size: 12px; letter-spacing: 0.1em; }
 }
 @media (prefers-reduced-motion: reduce) { .wall img { transition: none; } }
@@ -289,14 +273,9 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
   <section class="wrap" id="work" aria-label="Work">
     <div class="wall">
       <figure class="a"><span class="ph"><img src="img/ohio-estate-dusk.jpg" alt="Ohio estate at dusk: the lit garden front and covered terrace with a stone fireplace, seen across the pool" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
-      <figure class="b"><span class="ph"><img src="img/wyoming-workshop-rear.jpg" alt="A dark metal-clad two-storey workshop with a covered timber deck and stair, sagebrush and a fire pit in front, under a blue sky" loading="lazy"></span><figcaption><a href="/pole-barn-drawings-ohio/">Barns and outbuildings</a></figcaption></figure>
-      <figure class="c draw"><span class="ph"><img src="img/plan.jpg" alt="Reflected ceiling plan of the first floor of the Ohio estate, with grid lines, dimensions and fixture tags" loading="lazy"></span><figcaption><a href="/builders/">Construction documents</a></figcaption></figure>
+      <figure class="b draw"><span class="ph"><img src="img/estate-elev-north-color.jpg" alt="North elevation of the Dover residence from the construction documents, in colour: plaster walls, grey-green shutters, an arched oak front door under a balcony, and a slate hipped roof" loading="lazy"></span><figcaption><a href="/builders/">Construction documents</a></figcaption></figure>
+      <figure class="c"><span class="ph"><img src="img/wyoming-workshop-rear.jpg" alt="A dark metal-clad two-storey workshop with a covered timber deck and stair, sagebrush and a fire pit in front, under a blue sky" loading="lazy"></span><figcaption><a href="/pole-barn-drawings-ohio/">Barns and outbuildings</a></figcaption></figure>
       <figure class="d"><span class="ph"><img src="img/loft-living-fire.jpg" alt="Loft living room in Minneapolis: a three-sided glass fireplace in a white partition, a grey Womb chair and a white tufted bench in the foreground, pale wood floors" loading="lazy"></span><figcaption><a href="/permit-drawings-ohio/">Renovations</a></figcaption></figure>
-      <figure class="e"><span class="ph"><img src="img/sunrose-bar.jpg" alt="Restaurant bar in Los Angeles: a long oak bar with a marble top and bentwood stools, under a row of frosted glass cabinets in an oak frame" loading="lazy"></span><figcaption><a href="/permit-drawings-ohio/">Renovations</a></figcaption></figure>
-      <figure class="f"><span class="ph"><img src="img/beach-house-porch.jpg" alt="A screened porch with a pale blue board ceiling, wicker seating and two white rocking chairs, looking over live oaks and a salt marsh" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
-      <figure class="g"><span class="ph"><img src="img/granville-house-front.jpg" alt="A two-storey house in Granville, Ohio: sage green siding, a stone chimney, a front porch and a two-door garage, across a lawn with a curved drive" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
-      <figure class="h draw"><span class="ph"><img src="img/elev-north.jpg" alt="North elevation of the Ohio estate, with material tags, detail callouts and dimensions" loading="lazy"></span><figcaption><a href="/builders/">Construction documents</a></figcaption></figure>
-      <figure class="i"><span class="ph"><img src="img/ohio-estate-pool.jpg" alt="Grounds of the Ohio estate: pool terrace beside a stone garden wall with a fountain, a wing of the house beyond" loading="lazy"></span><figcaption><a href="/custom-home-architect-ohio/">Custom homes</a></figcaption></figure>
     </div>
     <p class="wall-note"><span class="caps">Houses, interiors and construction documents</span><a class="caps" href="/current-projects/">See current projects</a></p>
   </section>
