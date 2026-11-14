@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /inquiry/thanks/
+
+Sitemap: https://jameskehlarchitects.com/sitemap.xml

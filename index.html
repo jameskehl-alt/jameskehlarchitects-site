@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>James Kehl Architects</title>
-<meta name="description" content="James Kehl Architects is a solo residential architecture practice in central Ohio, designing timeless homes and living spaces for homeowners and builders.">
+<meta name="description" content="James Kehl Architects: an Ohio registered architect designing custom homes, additions and renovations, pole barns and zoning site plans for owners and builders anywhere in Ohio.">
 <link rel="canonical" href="https://jameskehlarchitects.com/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="James Kehl Architects">
-<meta property="og:description" content="Inspirational architecture that feels like home. Residential architecture in central Ohio.">
+<meta property="og:description" content="Inspirational architecture that feels like home. Residential architecture across Ohio.">
 <meta property="og:url" content="https://jameskehlarchitects.com/">
 <meta property="og:image" content="https://jameskehlarchitects.com/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": ["LocalBusiness", "ProfessionalService"], "@id": "https://jameskehlarchitects.com/#firm", "name": "James Kehl Architects", "telephone": "+17402587575", "email": "james@jameskehlarchitects.com", "url": "https://jameskehlarchitects.com/", "logo": "https://jameskehlarchitects.com/img/logo-mark.png", "image": "https://jameskehlarchitects.com/img/og.jpg", "founder": {"@type": "Person", "name": "James Kehl", "honorificSuffix": "RA", "jobTitle": "Principal and Owner", "url": "https://jameskehlarchitects.com/about/"}, "description": "Residential architecture practice led by James Kehl, RA, an Ohio registered architect, working anywhere in Ohio.", "areaServed": [{"@type": "State", "name": "Ohio"}, {"@type": "AdministrativeArea", "name": "Central Ohio"}, {"@type": "AdministrativeArea", "name": "Northeast Ohio"}, {"@type": "AdministrativeArea", "name": "Eastern Ohio and the Ohio Valley"}, {"@type": "AdministrativeArea", "name": "Southwest Ohio"}, {"@type": "AdministrativeArea", "name": "Northwest Ohio"}, {"@type": "AdministrativeArea", "name": "Southeast Ohio"}], "address": {"@type": "PostalAddress", "addressRegion": "OH", "addressCountry": "US"}, "knowsAbout": ["Pole barn and post-frame building drawings", "Permit drawings for additions and renovations", "New custom homes", "Zoning and site plans", "Residential Code of Ohio"], "sameAs": []}, {"@type": "WebSite", "url": "https://jameskehlarchitects.com/", "name": "James Kehl Architects", "publisher": {"@id": "https://jameskehlarchitects.com/#firm"}}]}</script>
 <style>
 /* Layout: compact one-page practice profile. Sans-serif carries the reading; the serif is kept
    for the opening line and client words. Section labels are quiet tracked capitals over a rule.
@@ -67,6 +68,7 @@ b, strong { font-weight: 500; }
 .nav a:hover { border-bottom-color: var(--ink); }
 @media (max-width: 760px) { .brand .name { display: none; } }
 @media (max-width: 440px) { .nav { gap: 12px; } .nav a { letter-spacing: 0.12em; font-size: 11px; } }
+@media (max-width: 560px) { .nav .nav-opt { display: none; } }
 
 /* ---------- Opening ---------- */
 .open { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 56px); padding-block: clamp(24px, 3vw, 40px) clamp(20px, 2.4vw, 32px); }
@@ -157,6 +159,11 @@ b, strong { font-weight: 500; }
   .svc-m .offer-m p b { color: var(--ink); font-size: 16px; }
 }
 .svc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 18px; }
+.more { display: grid; margin-top: clamp(28px, 3.4vw, 44px); border-top: 1px solid var(--ink); }
+.more a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-size: 15px; font-weight: 400; line-height: 1.35; }
+.more a::after { content: "\2192"; color: var(--soft); transition: transform .3s; }
+.more a:hover::after { transform: translateX(4px); color: var(--ink); }
+@media (min-width: 1000px) { .more { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(16px, 2vw, 32px); } .more a { align-items: start; } }
 
 /* ---------- Profile ---------- */
 .profile { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 4vw, 72px); align-items: start; }
@@ -185,7 +192,14 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
 .c-grid .item p.mail { overflow-wrap: normal; white-space: nowrap; }
 @media (max-width: 1100px) { .c-grid .item p.mail { font-size: 15px; } }
 .sel { user-select: all; }
-.c-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: clamp(32px, 4vw, 48px); padding-top: 16px; border-top: 1px solid #3a3a37; }
+.c-grid h2 a::after { content: "\2192"; font-family: var(--sans); font-weight: 300; font-size: .6em; margin-left: .5em; color: #a9a8a2; display: inline-block; transition: transform .3s; }
+.c-grid h2 a:hover::after { transform: translateX(4px); color: #f2f1ee; }
+.contact a:focus-visible { outline-color: #f2f1ee; }
+.c-links { display: flex; flex-wrap: wrap; gap: 0 clamp(18px, 2.2vw, 32px); margin-top: clamp(28px, 3.4vw, 44px); }
+.c-links a { display: flex; align-items: center; min-height: 44px; font-size: 14.5px; color: #dddbd6; }
+.c-links a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+@media (max-width: 560px) { .c-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; } }
+.c-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: 12px; padding-top: 16px; border-top: 1px solid #3a3a37; }
 .contact .mark { background: #f2f1ee; width: 56px; }
 @media (max-width: 900px) { .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .c-grid > :first-child { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .c-grid { grid-template-columns: 1fr; } }
@@ -201,8 +215,9 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
     <nav class="nav" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a href="#profile">Profile</a>
-      <a href="#contact">Contact</a>
+      <a class="nav-opt" href="#profile">Profile</a>
+      <a href="/questions/">Questions</a>
+      <a href="/inquiry/">Contact</a>
     </nav>
   </div>
 </header>
@@ -214,7 +229,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
         <span class="caps">Residential Architecture &middot; Ohio</span>
         <h1 class="serif">Inspirational architecture that feels like home.</h1>
         <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new estates to the careful renovation of existing houses.</p>
-        <p class="intro">JKA is a solo practice. I work directly with homeowners and builders across central Ohio, and I lead every project personally, from the first conversation through construction.</p>
+        <p class="intro">JKA is a solo practice. I work directly with homeowners and builders across Ohio, and I lead every project personally, from the first conversation through construction.</p>
       </div>
       <dl class="creds">
         <div><dt class="caps">Licensed</dt><dd>Ohio &amp; California</dd></div>
@@ -283,7 +298,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
           <div class="offer" role="row">
             <div class="who" role="rowheader"><span class="caps">Builders</span><b>Permit and CD Sets</b></div>
             <div class="track" role="cell" style="grid-column: span 5">
-              <p class="fee" style="grid-column: 1 / 6"><b>Fixed fee per sq ft</b>quoted per project</p>
+              <p class="fee" style="grid-column: 1 / 6"><b>By proposal</b>scope agreed in writing per project</p>
             </div>
           </div>
         </div>
@@ -297,12 +312,18 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
           <li><b>Bidding &amp; construction</b><span>Bid review, site visits, contractor questions and shop drawings.</span></li>
         </ol>
         <div class="offer-m"><span class="caps">Homeowners &middot; all phases</span><b>Full architectural services</b><p><b>By proposal</b> after an initial consultation</p></div>
-        <div class="offer-m"><span class="caps">Builders &middot; construction documents</span><b>Permit and CD Sets</b><p><b>Fixed fee per sq ft</b> quoted per project</p></div>
+        <div class="offer-m"><span class="caps">Builders &middot; construction documents</span><b>Permit and CD Sets</b><p><b>By proposal</b> scope agreed in writing per project</p></div>
       </div>
       <div class="svc-foot">
-        <span class="caps">Builder fee includes stamped drawings, permit submission and plan review responses</span>
-        <span class="caps">ARB &amp; HOA reviews billed hourly</span>
+        <span class="caps">Builder sets include sealed drawings, permit submission and plan review responses</span>
       </div>
+      <nav class="more" aria-label="Service pages">
+        <a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a>
+        <a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a>
+        <a href="/custom-home-architect-ohio/">New custom home design</a>
+        <a href="/zoning-site-plans-ohio/">Zoning and site plans</a>
+        <a href="/questions/">Questions</a>
+      </nav>
     </div>
   </section>
 
@@ -352,12 +373,21 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
     <div class="c-grid">
       <div>
         <span class="caps">Inquiries</span>
-        <h2 class="serif">Tell me about your project.</h2>
+        <h2 class="serif"><a href="/inquiry/">Tell me about your project.</a></h2>
       </div>
       <div class="item"><span class="caps">Email</span><p class="mail"><a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a></p></div>
       <div class="item"><span class="caps">Telephone</span><p><a href="tel:+17402587575">740-258-7575</a></p></div>
-      <div class="item"><span class="caps">Region</span><p>Central Ohio</p></div>
+      <div class="item"><span class="caps">Region</span><p>All of Ohio</p></div>
     </div>
+    <nav class="c-links" aria-label="Regions and about">
+      <a href="/regions/central-ohio/">Central Ohio</a>
+      <a href="/regions/northeast-ohio/">Northeast Ohio</a>
+      <a href="/regions/eastern-ohio/">Eastern Ohio &amp; Ohio Valley</a>
+      <a href="/regions/southwest-ohio/">Southwest Ohio</a>
+      <a href="/regions/northwest-ohio/">Northwest Ohio</a>
+      <a href="/regions/southeast-ohio/">Southeast Ohio</a>
+      <a href="/about/">About</a>
+    </nav>
     <div class="c-base">
       <span class="mark" role="img" aria-label="JKA"></span>
       <span class="caps">&copy; 2026 James Kehl Architects &middot; Licensed in Ohio &amp; California</span>
