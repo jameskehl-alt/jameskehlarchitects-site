@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>James Kehl Architects</title>
+<title>James Kehl Architects | Ohio Architect for Custom Homes, Additions and Permit Drawings</title>
 <meta name="description" content="James Kehl Architects: an Ohio registered architect designing custom homes, additions and renovations, pole barns and zoning site plans for owners and builders anywhere in Ohio.">
 <link rel="canonical" href="https://jameskehlarchitects.com/">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -25,7 +25,7 @@
 :root {
   --page: #ffffff;
   --ink: #1f1f1d;
-  --soft: #6d6c67;
+  --soft: #5c5b56;
   --line: #e4e2dd;
   --rule: #d6d3cd;
   --stone: #f1efec;
@@ -42,12 +42,12 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--sans); font-weight: 300; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
-a:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 h1, h2, h3 { margin: 0; text-wrap: balance; }
 p, ul, dl, dd { margin: 0; }
 ul { padding: 0; list-style: none; }
@@ -59,16 +59,16 @@ b, strong { font-weight: 500; }
 
 /* ---------- Header ---------- */
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,0.96); border-bottom: 1px solid var(--line); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 16px; }
-.brand { display: flex; align-items: center; gap: 16px; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 16px; min-height: 44px; }
 .mark { display: block; width: 56px; aspect-ratio: 600 / 370; background: var(--sage); -webkit-mask: url(img/logo-mark.png) center / contain no-repeat; mask: url(img/logo-mark.png) center / contain no-repeat; flex: none; }
 .brand .name { font-size: 12px; font-weight: 400; letter-spacing: 0.26em; text-transform: uppercase; white-space: nowrap; }
 .nav { display: flex; gap: clamp(16px, 2.6vw, 36px); }
-.nav a { font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; padding-block: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
-.nav a:hover { border-bottom-color: var(--ink); }
+.nav a { position: relative; display: flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
+.nav a:hover::after { border-bottom-color: var(--ink); }
 @media (max-width: 760px) { .brand .name { display: none; } }
 @media (max-width: 440px) { .nav { gap: 12px; } .nav a { letter-spacing: 0.12em; font-size: 11px; } }
-@media (max-width: 560px) { .nav .nav-opt { display: none; } }
 
 /* ---------- Opening ---------- */
 .open { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 56px); padding-block: clamp(24px, 3vw, 40px) clamp(20px, 2.4vw, 32px); }
@@ -88,6 +88,19 @@ b, strong { font-weight: 500; }
 .open-img .cap span.on { opacity: 1; }
 @media (max-width: 900px) { .open { grid-template-columns: 1fr; } .open-img { min-height: 0; max-height: none; height: auto; aspect-ratio: 4 / 3; } }
 @media (prefers-reduced-motion: reduce) { .open-img img, .open-img .cap span { transition: none; } }
+
+/* ---------- Two doors ---------- */
+.doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(28px, 4vw, 56px); margin-bottom: clamp(28px, 3.4vw, 44px); }
+.door { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 2px 16px; border-top: 1px solid var(--ink); padding-block: 14px 18px; }
+.door .serif { font-size: clamp(26px, 2.3vw, 32px); line-height: 1.15; }
+.door::after { content: "\2192"; grid-area: 1 / 2; font-size: 18px; color: var(--soft); transition: transform .3s, color .3s; }
+.door:hover::after { transform: translateX(4px); color: var(--ink); }
+.door .d-line { grid-column: 1 / -1; color: var(--soft); font-size: 15.5px; line-height: 1.5; max-width: 30em; }
+.door-sm { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 20px; min-height: 48px; padding-block: 10px; border-block: 1px solid var(--line); font-size: 15.5px; line-height: 1.4; }
+.door-sm .caps { color: var(--ink); font-weight: 500; }
+.door-sm::after { content: "\2192"; margin-left: auto; color: var(--soft); transition: transform .3s, color .3s; }
+.door-sm:hover::after { transform: translateX(4px); color: var(--ink); }
+@media (max-width: 700px) { .doors { grid-template-columns: 1fr; } .door-sm { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; } .door-sm > span { grid-column: 1; } .door-sm::after { grid-area: 1 / 2 / 3 / 3; align-self: center; margin: 0; } }
 
 /* ---------- Image wall ---------- */
 .wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: clamp(120px, 12.5vw, 200px); gap: var(--gap); }
@@ -129,8 +142,8 @@ b, strong { font-weight: 500; }
 .phil .lede { font-size: 20px; line-height: 1.5; font-weight: 300; max-width: 24em; }
 .tenets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 3vw, 48px); }
 .tenets li { padding-block: 16px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
-.tenets b { font-size: 15.5px; }
-.tenets span { color: var(--soft); font-size: 15px; line-height: 1.6; }
+.tenets b { font-size: 16px; }
+.tenets span { color: var(--soft); font-size: 15.5px; line-height: 1.6; }
 @media (max-width: 900px) { .phil { grid-template-columns: 1fr; } }
 @media (max-width: 600px) { .tenets { grid-template-columns: 1fr; } }
 
@@ -139,13 +152,13 @@ b, strong { font-weight: 500; }
 .phases { display: grid; grid-template-columns: minmax(210px, 1.3fr) repeat(5, minmax(120px, 1fr)); min-width: 880px; }
 .phases .ph { padding: 0 16px 18px 0; display: grid; gap: 6px; align-content: start; border-bottom: 1px solid var(--rule); }
 .phases .ph b { font-size: 15px; line-height: 1.3; }
-.phases .ph span { color: var(--soft); font-size: 13.5px; line-height: 1.55; }
+.phases .ph span { color: var(--soft); font-size: 15px; line-height: 1.5; }
 .phases .corner { border-bottom: 1px solid var(--rule); }
 .offer { display: contents; }
 .offer > .who { padding: 24px 20px 24px 0; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; align-content: center; }
 .offer > .who b { font-size: 17px; font-weight: 500; line-height: 1.3; }
 .offer > .track { border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding-block: 24px; }
-.offer > .track .fee { font-size: 14.5px; color: var(--soft); }
+.offer > .track .fee { font-size: 15px; color: var(--soft); }
 .offer > .track .fee b { color: var(--ink); font-size: 17px; margin-right: 8px; }
 .svc-m { display: none; }
 @media (max-width: 760px) {
@@ -153,9 +166,9 @@ b, strong { font-weight: 500; }
   .svc-m { display: grid; gap: 28px; }
   .svc-m ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .svc-m li { padding-block: 10px; border-bottom: 1px solid var(--rule); display: grid; }
-  .svc-m li span { color: var(--soft); font-size: 14px; }
+  .svc-m li span { color: var(--soft); font-size: 15px; line-height: 1.5; }
   .svc-m .offer-m { display: grid; gap: 4px; padding-top: 16px; border-top: 3px solid var(--bar); }
-  .svc-m .offer-m p { color: var(--soft); font-size: 14.5px; }
+  .svc-m .offer-m p { color: var(--soft); font-size: 15px; }
   .svc-m .offer-m p b { color: var(--ink); font-size: 16px; }
 }
 .svc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 18px; }
@@ -170,11 +183,11 @@ b, strong { font-weight: 500; }
 .who-row { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 22px; align-items: start; }
 .who-row img { width: 112px; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 20%; }
 .who-row b { font-size: 17px; }
-.who-row p { color: var(--soft); margin-top: 8px; font-size: 14.5px; line-height: 1.65; }
+.who-row p { color: var(--soft); margin-top: 8px; font-size: 15.5px; line-height: 1.65; }
 .career { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
 .career li { padding-block: 11px; border-top: 1px solid var(--rule); display: grid; }
 .career b { font-size: 15px; }
-.career span { color: var(--soft); font-size: 14px; line-height: 1.5; }
+.career span { color: var(--soft); font-size: 15px; line-height: 1.5; }
 .quotes { display: grid; gap: 26px; }
 blockquote { margin: 0; display: grid; gap: 10px; padding-bottom: 26px; border-bottom: 1px solid var(--rule); }
 blockquote:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -182,40 +195,48 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
 @media (max-width: 960px) { .profile { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .who-row { grid-template-columns: 88px minmax(0, 1fr); gap: 16px; } .who-row img { width: 88px; } .career { grid-template-columns: 1fr; } }
 
-/* ---------- Contact ---------- */
-.contact { background: var(--ink); color: #f2f1ee; padding-block: clamp(40px, 5vw, 64px) 24px; }
-.contact .caps { color: #a9a8a2; }
-.c-grid { display: grid; grid-template-columns: minmax(0, 4.5fr) minmax(0, 3fr) minmax(0, 2fr) minmax(0, 2fr); gap: 28px; align-items: end; }
-.c-grid h2 { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.15; margin-top: 10px; }
-.c-grid .item { display: grid; gap: 4px; }
-.c-grid .item p { font-size: 17px; font-weight: 400; overflow-wrap: anywhere; }
-.c-grid .item p.mail { overflow-wrap: normal; white-space: nowrap; }
-@media (max-width: 1100px) { .c-grid .item p.mail { font-size: 15px; } }
-.sel { user-select: all; }
-.c-grid h2 a::after { content: "\2192"; font-family: var(--sans); font-weight: 300; font-size: .6em; margin-left: .5em; color: #a9a8a2; display: inline-block; transition: transform .3s; }
-.c-grid h2 a:hover::after { transform: translateX(4px); color: #f2f1ee; }
+/* ---------- Start a project band and footer: the same pattern as the inner pages (pages.css) ---------- */
+.cta { background: var(--stone); padding-block: clamp(36px, 4.5vw, 60px); }
+.cta .label { margin-bottom: 18px; }
+.cta-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px; }
+.cta .big { font-size: clamp(28px, 2.6vw, 38px); line-height: 1.15; }
+.cta-acts { display: flex; align-items: center; gap: 12px 26px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; background: var(--ink); color: #fff; padding: 12px 26px; font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; transition: background .3s; }
+.btn:hover { background: #000; }
+.tel { display: inline-flex; align-items: center; min-height: 48px; font-size: 17px; }
+.tel:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.contact { background: var(--ink); color: #f2f1ee; padding-block: clamp(36px, 4.5vw, 56px) 24px; }
+.contact .caps { color: #a9a8a2; display: block; margin-bottom: 8px; }
+.contact a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 .contact a:focus-visible { outline-color: #f2f1ee; }
-.c-links { display: flex; flex-wrap: wrap; gap: 0 clamp(18px, 2.2vw, 32px); margin-top: clamp(28px, 3.4vw, 44px); }
-.c-links a { display: flex; align-items: center; min-height: 44px; font-size: 14.5px; color: #dddbd6; }
-.c-links a:hover { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
-@media (max-width: 560px) { .c-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; } }
-.c-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: 12px; padding-top: 16px; border-top: 1px solid #3a3a37; }
-.contact .mark { background: #f2f1ee; width: 56px; }
-@media (max-width: 900px) { .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .c-grid > :first-child { grid-column: 1 / -1; } }
-@media (max-width: 480px) { .c-grid { grid-template-columns: 1fr; } }
+.contact li a, .contact p a { display: flex; align-items: center; min-height: 44px; padding-block: 5px; }
+.contact li, .contact p { font-size: 15px; line-height: 1.35; color: #dddbd6; }
+.f-id p:not(:has(a)) { padding-block: 5px; }
+.f-id p a { color: #f2f1ee; }
+.f-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+.f-grid > :first-child, .f-grid > :last-child { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  .f-grid { grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.6fr) minmax(0, 2.6fr) minmax(0, 3.6fr); gap: 32px; }
+  .f-grid > :first-child, .f-grid > :last-child { grid-column: auto; }
+  .contact li a, .contact p a { display: inline-block; min-height: 0; padding-block: 4px; }
+  .contact li, .contact p { line-height: 1.45; }
+  .f-id p:not(:has(a)) { padding-block: 4px; }
+}
+.c-base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: clamp(28px, 4vw, 48px); padding-top: 16px; border-top: 1px solid #3a3a37; }
+.c-base .caps { margin: 0; }
+.contact .mark { background: #f2f1ee; }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="James Kehl Architects, home">
+    <a class="brand" href="/" aria-label="James Kehl Architects, home">
       <span class="mark" role="img" aria-label="JKA"></span>
       <span class="name">James Kehl Architects</span>
     </a>
     <nav class="nav" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
-      <a class="nav-opt" href="#profile">Profile</a>
       <a href="/questions/">Questions</a>
       <a href="/inquiry/">Contact</a>
     </nav>
@@ -228,7 +249,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       <div>
         <span class="caps">Residential Architecture &middot; Ohio</span>
         <h1 class="serif">Inspirational architecture that feels like home.</h1>
-        <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new estates to the careful renovation of existing houses.</p>
+        <p class="intro">James Kehl Architects designs timeless homes and living spaces, pursuing lightness, warmth and a refined character in every detail. The work spans the modern and the classic, from new houses to the careful renovation of existing ones. I also draw permit sets for additions, garages, pole barns and site plans for owners and builders anywhere in Ohio.</p>
         <p class="intro">JKA is a solo practice. I work directly with homeowners and builders across Ohio, and I lead every project personally, from the first conversation through construction.</p>
       </div>
       <dl class="creds">
@@ -244,6 +265,12 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       <div class="cap"><span class="on">New Residence &middot; Ohio</span></div>
     </div>
   </section>
+
+  <nav class="wrap doors" aria-label="Start here">
+    <a class="door" href="/custom-home-architect-ohio/"><span class="serif">Design a home</span><span class="d-line">A new house, designed with its interiors and landscape.</span></a>
+    <a class="door" href="/permit-drawings-ohio/"><span class="serif">Get permit drawings</span><span class="d-line">Additions, garages, pole barns and site plans, anywhere in Ohio.</span></a>
+    <a class="door-sm" href="/builders/"><span class="caps">Builders</span><span>Construction documents and permit sets</span></a>
+  </nav>
 
   <section class="wrap" id="work" aria-label="Work">
     <div class="wall">
@@ -322,7 +349,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
         <a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a>
         <a href="/custom-home-architect-ohio/">New custom home design</a>
         <a href="/zoning-site-plans-ohio/">Zoning and site plans</a>
-        <a href="/questions/">Questions</a>
+        <a href="/builders/">Construction documents for builders</a>
       </nav>
     </div>
   </section>
@@ -368,32 +395,26 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
   </section>
 </main>
 
-<footer class="contact" id="contact">
+<!-- shared:start (written by build.py: same band and footer as the inner pages) -->
+<aside class="cta" aria-label="Start a project">
   <div class="wrap">
-    <div class="c-grid">
-      <div>
-        <span class="caps">Inquiries</span>
-        <h2 class="serif"><a href="/inquiry/">Tell me about your project.</a></h2>
-      </div>
-      <div class="item"><span class="caps">Email</span><p class="mail"><a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a></p></div>
-      <div class="item"><span class="caps">Telephone</span><p><a href="tel:+17402587575">740-258-7575</a></p></div>
-      <div class="item"><span class="caps">Region</span><p>All of Ohio</p></div>
-    </div>
-    <nav class="c-links" aria-label="Regions and about">
-      <a href="/regions/central-ohio/">Central Ohio</a>
-      <a href="/regions/northeast-ohio/">Northeast Ohio</a>
-      <a href="/regions/eastern-ohio/">Eastern Ohio &amp; Ohio Valley</a>
-      <a href="/regions/southwest-ohio/">Southwest Ohio</a>
-      <a href="/regions/northwest-ohio/">Northwest Ohio</a>
-      <a href="/regions/southeast-ohio/">Southeast Ohio</a>
-      <a href="/about/">About</a>
-    </nav>
-    <div class="c-base">
-      <span class="mark" role="img" aria-label="JKA"></span>
-      <span class="caps">&copy; 2026 James Kehl Architects &middot; Licensed in Ohio &amp; California</span>
+    <div class="label"><span class="caps">Start a project</span></div>
+    <div class="cta-row">
+      <p class="serif big">Tell me what you want to build.</p>
+      <div class="cta-acts"><a class="btn" href="/inquiry/">Send an inquiry</a><a class="tel" href="tel:+17402587575">740-258-7575</a></div>
     </div>
   </div>
+</aside>
+<footer class="contact">
+  <div class="wrap f-grid">
+    <div class="f-id"><span class="caps">James Kehl Architects</span><p>James Kehl, RA &middot; Ohio registered architect</p><p><a href="tel:+17402587575">740-258-7575</a></p><p><a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a></p><p>Serving all of Ohio</p></div>
+    <nav aria-label="Services"><span class="caps">Services</span><ul><li><a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a></li><li><a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a></li><li><a href="/custom-home-architect-ohio/">New custom home design</a></li><li><a href="/zoning-site-plans-ohio/">Zoning and site plans</a></li><li><a href="/builders/">Construction documents for builders</a></li></ul></nav>
+    <nav aria-label="Regions"><span class="caps">Regions</span><ul><li><a href="/regions/central-ohio/">Central Ohio</a></li><li><a href="/regions/columbus-suburbs/">Columbus suburbs</a></li><li><a href="/regions/northeast-ohio/">Northeast Ohio</a></li><li><a href="/regions/eastern-ohio/">Eastern Ohio and the Ohio Valley</a></li><li><a href="/regions/southwest-ohio/">Southwest Ohio</a></li><li><a href="/regions/northwest-ohio/">Northwest Ohio</a></li><li><a href="/regions/southeast-ohio/">Southeast Ohio</a></li></ul></nav>
+    <nav aria-label="Guides"><span class="caps">Guides</span><ul><li><a href="/guides/pole-barn-permit-ohio/">Do I need a permit for a pole barn in Ohio?</a></li><li><a href="/guides/ohio-agricultural-building-exemption/">Ohio's agricultural building exemption, explained</a></li><li><a href="/guides/zoning-site-plan-ohio/">What does a zoning site plan need in Ohio?</a></li><li><a href="/guides/do-i-need-an-architect-ohio/">Do I need an architect for a house or addition in Ohio?</a></li><li><a href="/questions/">Questions</a></li><li><a href="/about/">About</a></li></ul></nav>
+  </div>
+  <div class="wrap"><div class="c-base"><span class="mark" role="img" aria-label="JKA"></span><span class="caps">&copy; 2026 James Kehl Architects</span></div></div>
 </footer>
+<!-- shared:end -->
 <script>
 (function () {
   var hero = document.getElementById('hero');
