@@ -67,6 +67,13 @@ b, strong { font-weight: 500; }
 .nav a { position: relative; display: flex; align-items: center; min-height: 44px; font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 6px; border-bottom: 1px solid transparent; transition: border-color .3s; }
 .nav a:hover::after { border-bottom-color: var(--ink); }
+.nav .n-cta { margin-left: clamp(0px, 0.6vw, 8px); padding: 0 18px; background: var(--ink); color: #fff; }
+.nav .n-cta::after { display: none; }
+.nav .n-cta:hover { background: #333; }
+.nav .n-cta .cta-s { display: none; }
+@media (max-width: 760px) { .nav .n-cta { padding: 0 12px; } .nav .n-cta .cta-l { display: none; } .nav .n-cta .cta-s { display: inline; } }
+@media (max-width: 400px) { .nav .n-q { display: none; } }
+@media (max-width: 440px) { .nav { gap: 9px; } .nav a { font-size: 10.5px; letter-spacing: 0.06em; } .nav .n-cta { padding: 0 9px; } .top .wrap { gap: 10px; } }
 @media (max-width: 880px) { .brand .name { display: none; } }
 .n-proj { gap: 0 .45em; }
 @media (max-width: 600px) { .nav .n-work { display: none; } .nav .n-proj { flex-direction: column; align-items: flex-start; justify-content: center; line-height: 1.3; } }
@@ -163,12 +170,18 @@ h2.caps, h3.caps { line-height: 1.7; }
 .phases li { padding-block: 14px; border-top: 1px solid var(--rule); align-items: baseline; }
 .phases b { font-size: 15.5px; line-height: 1.4; }
 .phases span { color: var(--soft); font-size: 15.5px; line-height: 1.5; }
-.more { border-bottom: 1px solid var(--rule); }
-.more li { border-top: 1px solid var(--rule); }
-.more a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; padding-block: 12px; font-size: 15.5px; line-height: 1.35; }
-.more a::after { content: "\2192"; color: var(--soft); transition: transform .3s, color .3s; }
-.more a:hover::after { transform: translateX(4px); color: var(--ink); }
-@media (min-width: 601px) { .more { border-bottom: 0; } .more li { border-top: 0; border-bottom: 1px solid var(--rule); } .more li:nth-child(-n+2) { border-top: 1px solid var(--rule); } }
+.svc-pages .part { padding: 0 0 14px; }
+.cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.cards a { position: relative; display: flex; flex-direction: column; gap: 6px; height: 100%; background: var(--page); padding: 22px 48px 22px 24px; border: 1px solid transparent; transition: border-color .3s; }
+.cards b { font-family: var(--serif); font-size: 21px; font-weight: 400; line-height: 1.25; color: var(--ink); }
+.cards span { color: var(--soft); font-size: 15px; line-height: 1.5; }
+.cards a::after { content: "\2192"; position: absolute; right: 22px; top: 24px; color: var(--soft); transition: transform .3s, color .3s; }
+.cards a:hover { border-color: var(--rule); }
+.cards a:hover::after { transform: translateX(4px); color: var(--ink); }
+a.offer { color: inherit; border: 1px solid transparent; transition: border-color .3s; }
+a.offer:hover { border-color: var(--rule); }
+@media (max-width: 1000px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
 @media (max-width: 900px) { .svc .part { padding-top: 0; } }
 @media (max-width: 600px) { .phases li { gap: 2px; } }
 
@@ -232,8 +245,8 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
       <a class="n-work" href="#work">Work</a>
       <a class="n-proj" href="/current-projects/">Current <span>projects</span></a>
       <a href="#services">Services</a>
-      <a href="/questions/">Questions</a>
-      <a href="/inquiry/">Contact</a>
+      <a class="n-q" href="/questions/">Questions</a>
+      <a class="n-cta" href="/inquiry/"><span class="cta-l">Request a proposal</span><span class="cta-s">Contact</span></a>
     </nav>
   </div>
 </header>
@@ -298,21 +311,32 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
     <div class="wrap">
       <div class="label"><h2 class="caps" id="h-services">Services</h2><span class="caps">For homeowners &amp; builders</span></div>
       <div class="svc">
+        <nav class="svc-pages" aria-labelledby="h-pages">
+          <h3 class="caps part" id="h-pages">What JKA draws</h3>
+          <ul class="cards">
+            <li><a href="/custom-home-architect-ohio/"><b>New custom home design</b><span>A new house, designed with its interiors and landscape.</span></a></li>
+            <li><a href="/permit-drawings-ohio/"><b>Additions and renovations</b><span>Sealed permit drawings for an addition, remodel or garage.</span></a></li>
+            <li><a href="/pole-barn-drawings-ohio/"><b>Pole barns and post-frame buildings</b><span>Barns, shops and garages drawn for zoning and permit.</span></a></li>
+            <li><a href="/zoning-site-plans-ohio/"><b>Zoning and site plans</b><span>Setbacks, drives and utilities, drawn for the zoning office.</span></a></li>
+            <li><a href="/builders/"><b>Construction documents for builders</b><span>Coordinated permit and construction sets for home builders.</span></a></li>
+            <li><a href="/listing-feasibility-studies-ohio/"><b>Listing feasibility studies</b><span>For agents: what can be built on a lot that has not sold.</span></a></li>
+          </ul>
+        </nav>
         <div class="split">
           <h3 class="caps part">Scope</h3>
           <div class="pair offers">
-            <div class="offer">
+            <a class="offer" href="/custom-home-architect-ohio/">
               <span class="caps">Homeowners</span>
               <h3>Full architectural services</h3>
               <p class="what">All phases, from consultation through construction.</p>
               <p class="fee"><b>By proposal</b> after an initial consultation</p>
-            </div>
-            <div class="offer">
+            </a>
+            <a class="offer" href="/builders/">
               <span class="caps">Builders</span>
               <h3>Permit and CD Sets</h3>
               <p class="what">Builder sets include sealed drawings, permit submission and plan review responses.</p>
               <p class="fee"><b>By proposal</b> scope agreed in writing per project</p>
-            </div>
+            </a>
           </div>
         </div>
         <div class="split">
@@ -325,17 +349,6 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(2
             <li class="pair"><b>Bidding &amp; construction</b> <span>Bid review, site visits, contractor questions and shop drawings.</span></li>
           </ol>
         </div>
-        <nav class="split" aria-labelledby="h-pages">
-          <h3 class="caps part" id="h-pages">Service pages</h3>
-          <ul class="pair more">
-            <li><a href="/custom-home-architect-ohio/">New custom home design</a></li>
-            <li><a href="/permit-drawings-ohio/">Permit drawings for additions and renovations</a></li>
-            <li><a href="/pole-barn-drawings-ohio/">Pole barn and post-frame building drawings</a></li>
-            <li><a href="/zoning-site-plans-ohio/">Zoning and site plans</a></li>
-            <li><a href="/builders/">Construction documents for builders</a></li>
-            <li><a href="/listing-feasibility-studies-ohio/">Listing feasibility studies</a></li>
-          </ul>
-        </nav>
       </div>
     </div>
   </section>
