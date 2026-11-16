@@ -54,8 +54,9 @@
     <label>Your name<input name="name" required maxlength="120" autocomplete="name"></label>
     <label>Email<input name="email" type="email" required maxlength="200" autocomplete="email" inputmode="email"></label>
   </div>
-  <details class="more">
-    <summary>More detail, if you have it</summary>
+  <section class="more" aria-labelledby="more-h">
+    <h2 class="more-h" id="more-h">More detail, if you have it</h2>
+    <p class="hint more-why">All optional, but the more you share here, the more likely the first reply can be a written proposal.</p>
     <div class="more-in">
       <div class="row">
         <label>Rough size <span class="hint">Square feet or dimensions, if you know.</span>
@@ -66,15 +67,15 @@
       <fieldset><legend>Do you have a survey of the property?</legend>
         <div class="opts"><label><input type="radio" name="survey" value="Yes"> Yes</label><label><input type="radio" name="survey" value="No"> No</label><label><input type="radio" name="survey" value="Not sure"> Not sure</label></div></fieldset>
       <div class="row">
-        <label>Phone <span class="hint">Optional.</span><input name="phone" type="tel" maxlength="40" autocomplete="tel"></label>
+        <label>Phone<input name="phone" type="tel" maxlength="40" autocomplete="tel"></label>
         <label>Best way and time to reach you<input name="reach" maxlength="200" placeholder="e.g. call weekday evenings"></label>
       </div>
-      <label>How did you hear about JKA? <span class="hint">Optional.</span>
+      <label>How did you hear about JKA?
         <select name="heard"><option value="">Choose one</option><option>Google search</option><option>Google Maps</option><option>AI assistant (ChatGPT etc.)</option><option>A builder</option><option>A friend or past client</option><option>Facebook</option><option>Other</option></select></label>
       <label>Anything else? <span class="hint">Address or parcel, a lease or opening date, a supplier you are working with, a deadline.</span>
         <textarea name="notes" maxlength="3000" rows="3"></textarea></label>
     </div>
-  </details>
+  </section>
   <div class="hp" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div>
   <p class="form-err" id="inq-err" role="alert">That did not go through. Please email <a href="mailto:james@jameskehlarchitects.com">james@jameskehlarchitects.com</a> or call <a href="tel:+17402587575">740-258-7575</a>.</p>
   <div class="send"><button class="btn" type="submit">Send</button></div>
