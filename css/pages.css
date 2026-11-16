@@ -191,12 +191,10 @@ b, strong { font-weight: 500; }
 .form .opts label:has(:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
 .form .opts label:has(:focus-visible) { outline: 2px solid var(--ink); outline-offset: 3px; }
 .form .opts input { width: 18px; height: 18px; margin: 0; accent-color: var(--ink); }
-.form .more { border-block: 1px solid var(--line); }
-.form .more summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 52px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 400; }
-.form .more summary::-webkit-details-marker { display: none; }
-.form .more summary::after { content: "+"; font-size: 20px; font-weight: 300; line-height: 1; color: var(--soft); }
-.form .more[open] summary::after { content: "\2212"; }
-.form .more-in { display: grid; gap: 22px; padding-block: 8px 24px; }
+.form .more { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); padding-top: 22px; margin-top: 10px; }
+.form .more-h { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); margin: 0; }
+.form .more-why { display: block; margin: 8px 0 0; line-height: 1.5; }
+.form .more-in { display: grid; gap: 22px; padding-block: 22px 26px; }
 .form .send { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
 .form .send .btn { min-width: 160px; }
 @media (max-width: 480px) { .form .send .btn { width: 100%; } }
